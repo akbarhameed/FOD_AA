@@ -1,0 +1,14 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<BC4JConfig version="11.1" xmlns="http://xmlns.oracle.com/bc4j/configuration">
+   <AppModuleConfigBag ApplicationName="model.mwgl.service.FodAppModule">
+      <AppModuleConfig name="FodAppModuleLocal" ApplicationName="model.mwgl.service.FodAppModule" DeployPlatform="LOCAL" jbo.project="model.Model">
+         <Security AppModuleJndiName="model.mwgl.service.FodAppModule"/>
+         <Custom JDBCDataSource="java:comp/env/jdbc/FODDS"/>
+      </AppModuleConfig>
+      <AppModuleConfig name="FodAppModuleShared" ApplicationName="model.mwgl.service.FodAppModule" DeployPlatform="LOCAL" jbo.project="model.Model">
+         <AM-Pooling jbo.ampool.maxpoolsize="1" jbo.ampool.isuseexclusive="false"/>
+         <Security AppModuleJndiName="model.mwgl.service.FodAppModule"/>
+         <Custom JDBCDataSource="java:comp/env/jdbc/FODDS"/>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+</BC4JConfig>

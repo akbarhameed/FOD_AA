@@ -1,0 +1,440 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="OrdersVO"
+  Version="11.1.1.64.93"
+  InheritPersonalization="true"
+  SelectList="OrdersEO.ORDER_ID, 
+       OrdersEO.ORDER_DATE, 
+       OrdersEO.ORDER_SHIPPED_DATE, 
+       OrdersEO.ORDER_STATUS_CODE, 
+       OrdersEO.ORDER_TOTAL, 
+       OrdersEO.CUSTOMER_ID, 
+       OrdersEO.SHIP_TO_NAME, 
+       OrdersEO.SHIP_TO_ADDRESS_ID, 
+       OrdersEO.SHIP_TO_PHONE_NUMBER, 
+       OrdersEO.SHIPPING_OPTION_ID, 
+       OrdersEO.PAYMENT_OPTION_ID, 
+       OrdersEO.DISCOUNT_ID, 
+       OrdersEO.COUPON_ID, 
+       OrdersEO.FREE_SHIPPING_FLAG, 
+       OrdersEO.CUSTOMER_COLLECT_FLAG, 
+       OrdersEO.COLLECTION_WAREHOUSE_ID, 
+       OrdersEO.GIFTWRAP_FLAG, 
+       OrdersEO.GIFTWRAP_MESSAGE, 
+       OrdersEO.CREATED_BY, 
+       OrdersEO.CREATION_DATE, 
+       OrdersEO.LAST_UPDATED_BY, 
+       OrdersEO.LAST_UPDATE_DATE, 
+       OrdersEO.OBJECT_VERSION_ID"
+  FromList="ORDERS OrdersEO"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  ComponentClass="model.mwgl.vo.OrdersVOImpl"
+  ComponentInterface="model.mwgl.vo.common.OrdersVO"
+  ClientProxyName="model.mwgl.vo.client.OrdersVOClient"
+  PageIterMode="Full"
+  UseGlueCode="false"
+  RowClass="model.mwgl.vo.OrdersVORowImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|Coll"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <ViewAccessor
+    Name="ShippingOptionsView1"
+    ViewObjectName="model.mwgl.vo.ShippingOptionsView"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="ShippingOptionsView2"
+    ViewObjectName="model.mwgl.vo.ShippingOptionsView"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="PaymentOptionsVO1"
+    ViewObjectName="model.mwgl.vo.PaymentOptionsVO">
+    <ViewCriteriaUsage
+      Name="PaymentOptionsVOCriteria"
+      FullName="model.mwgl.vo.PaymentOptionsVO.PaymentOptionsVOCriteria"/>
+    <ParameterMap>
+      <PIMap Variable="PersonIdBind">
+        <TransientExpression><![CDATA[CustomerId]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="AddressAndUsageVO1"
+    ViewObjectName="model.mwgl.vo.AddressAndUsageVO">
+    <ViewCriteriaUsage
+      Name="AddressesForUserCriteria"
+      FullName="model.mwgl.vo.AddressAndUsageVO.AddressesForUserCriteria"/>
+    <ViewCriteriaUsage
+      Name="ShippingAddressesCriteria"
+      FullName="model.mwgl.vo.AddressAndUsageVO.ShippingAddressesCriteria"/>
+    <ParameterMap>
+      <PIMap Variable="personid">
+        <TransientExpression><![CDATA[CustomerId]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ListBinding
+    Name="LOV_ShippingOptionId"
+    ListVOName="ShippingOptionsView2"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    NullValueId="LOV_ShippingOptionId_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="ShippingOptionId"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ShippingOptionId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ShippingMethod"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_PaymentOptionId"
+    ListVOName="PaymentOptionsVO1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="PaymentOptionId"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="PaymentOptionId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="AccountNumber"/>
+      <Item Value="CardTypeCode"/>
+      <Item Value="InstitutionName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_ShipToAddressId"
+    ListVOName="AddressAndUsageVO1"
+    ListRangeSize="10"
+    NullValueFlag="none"
+    NullValueId="LOV_ShipToAddressId_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="ShipToAddressId"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="AddressId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Address1"/>
+      <Item Value="Address2"/>
+      <Item Value="City"/>
+      <Item Value="CountryId"/>
+      <Item Value="PostalCode"/>
+      <Item Value="StateProvince"/>
+    </AttrArray>
+    <DisplayCriteria
+      Hint="showAndExecute"/>
+  </ListBinding>
+  <EntityUsage
+    Name="OrdersEO"
+    Entity="model.mwgl.eo.OrdersEO"/>
+  <ViewAttribute
+    Name="OrderId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="OrderId"
+    EntityUsage="OrdersEO"
+    AliasName="ORDER_ID"
+    IsUpdateable="while_insert"/>
+  <ViewAttribute
+    Name="OrderDate"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="OrderDate"
+    EntityUsage="OrdersEO"
+    AliasName="ORDER_DATE"/>
+  <ViewAttribute
+    Name="OrderShippedDate"
+    PrecisionRule="true"
+    EntityAttrName="OrderShippedDate"
+    EntityUsage="OrdersEO"
+    AliasName="ORDER_SHIPPED_DATE"/>
+  <ViewAttribute
+    Name="OrderStatusCode"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="OrderStatusCode"
+    EntityUsage="OrdersEO"
+    AliasName="ORDER_STATUS_CODE"/>
+  <ViewAttribute
+    Name="OrderTotal"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="OrderTotal"
+    EntityUsage="OrdersEO"
+    AliasName="ORDER_TOTAL">
+    <Properties>
+      <SchemaBasedProperties>
+        <FMT_FORMATTER
+          ResId="model.mwgl.vo.OrdersVO.OrderTotal_FMT_FORMATTER"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CustomerId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CustomerId"
+    EntityUsage="OrdersEO"
+    AliasName="CUSTOMER_ID"/>
+  <ViewAttribute
+    Name="ShipToName"
+    PrecisionRule="true"
+    EntityAttrName="ShipToName"
+    EntityUsage="OrdersEO"
+    AliasName="SHIP_TO_NAME"/>
+  <ViewAttribute
+    Name="ShipToAddressId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="ShipToAddressId"
+    EntityUsage="OrdersEO"
+    AliasName="SHIP_TO_ADDRESS_ID"
+    LOVName="LOV_ShipToAddressId">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ShipToPhoneNumber"
+    PrecisionRule="true"
+    EntityAttrName="ShipToPhoneNumber"
+    EntityUsage="OrdersEO"
+    AliasName="SHIP_TO_PHONE_NUMBER"/>
+  <ViewAttribute
+    Name="ShippingOptionId"
+    LOVName="LOV_ShippingOptionId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="ShippingOptionId"
+    EntityUsage="OrdersEO"
+    AliasName="SHIPPING_OPTION_ID">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="radio"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="PaymentOptionId"
+    LOVName="LOV_PaymentOptionId"
+    PrecisionRule="true"
+    EntityAttrName="PaymentOptionId"
+    EntityUsage="OrdersEO"
+    AliasName="PAYMENT_OPTION_ID">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="DiscountId"
+    PrecisionRule="true"
+    EntityAttrName="DiscountId"
+    EntityUsage="OrdersEO"
+    AliasName="DISCOUNT_ID"/>
+  <ViewAttribute
+    Name="CouponId"
+    PrecisionRule="true"
+    EntityAttrName="CouponId"
+    EntityUsage="OrdersEO"
+    AliasName="COUPON_ID"/>
+  <ViewAttribute
+    Name="FreeShippingFlag"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="FreeShippingFlag"
+    EntityUsage="OrdersEO"
+    AliasName="FREE_SHIPPING_FLAG"/>
+  <ViewAttribute
+    Name="CustomerCollectFlag"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CustomerCollectFlag"
+    EntityUsage="OrdersEO"
+    AliasName="CUSTOMER_COLLECT_FLAG"/>
+  <ViewAttribute
+    Name="CollectionWarehouseId"
+    PrecisionRule="true"
+    EntityAttrName="CollectionWarehouseId"
+    EntityUsage="OrdersEO"
+    AliasName="COLLECTION_WAREHOUSE_ID"/>
+  <ViewAttribute
+    Name="GiftwrapFlag"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="GiftwrapFlag"
+    EntityUsage="OrdersEO"
+    AliasName="GIFTWRAP_FLAG"/>
+  <ViewAttribute
+    Name="GiftwrapMessage"
+    PrecisionRule="true"
+    EntityAttrName="GiftwrapMessage"
+    EntityUsage="OrdersEO"
+    AliasName="GIFTWRAP_MESSAGE"/>
+  <ViewAttribute
+    Name="CreatedBy"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CreatedBy"
+    EntityUsage="OrdersEO"
+    AliasName="CREATED_BY"
+    IsUpdateable="false"/>
+  <ViewAttribute
+    Name="CreationDate"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CreationDate"
+    EntityUsage="OrdersEO"
+    AliasName="CREATION_DATE"
+    IsUpdateable="false"/>
+  <ViewAttribute
+    Name="LastUpdatedBy"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="LastUpdatedBy"
+    EntityUsage="OrdersEO"
+    AliasName="LAST_UPDATED_BY"
+    IsUpdateable="false"/>
+  <ViewAttribute
+    Name="LastUpdateDate"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="LastUpdateDate"
+    EntityUsage="OrdersEO"
+    AliasName="LAST_UPDATE_DATE"
+    IsUpdateable="false"/>
+  <ViewAttribute
+    Name="ObjectVersionId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="ObjectVersionId"
+    EntityUsage="OrdersEO"
+    AliasName="OBJECT_VERSION_ID"
+    IsUpdateable="false"/>
+  <ViewAttribute
+    Name="TotalShippingCost"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Double"
+    ColumnType="DOUBLE PRECISION"
+    AliasName="VIEW_ATTR"
+    SQLType="DOUBLE">
+    <TransientExpression><![CDATA[if(FreeShippingFlag != null &&
+                           FreeShippingFlag != 'Y'){ if(OrderItemsVO != null){
+                           return OrderItemsVO.sum("ShippingCost"); } else {
+                           return 0; } } else { return 0; }]]></TransientExpression>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CalculatedOrderTotal"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Double"
+    ColumnType="DOUBLE PRECISION"
+    AliasName="CALCULATEDORDERTOTAL"
+    SQLType="DOUBLE"/>
+  <ViewAttribute
+    Name="CalculatedOrderTotal1"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="CalculatedOrderTotal"
+    EntityUsage="OrdersEO"/>
+  <ViewAttribute
+    Name="DiscountAmount"
+    IsUpdateable="false"
+    IsSelected="false"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="DiscountAmount"
+    EntityUsage="OrdersEO"
+    AliasName="DISCOUNTAMOUNT">
+    <TransientExpression><![CDATA[10.02]]></TransientExpression>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="InvoiceTotal"
+    IsUpdateable="false"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Double"
+    ColumnType="DOUBLE PRECISION"
+    AliasName="VIEW_ATTR"
+    SQLType="DOUBLE">
+    <TransientExpression><![CDATA[if(TotalShippingCost != null &&
+                           CalculatedOrderTotal1 != null &&
+                           DiscountAmount != null){ return ((TotalShippingCost +
+                           CalculatedOrderTotal1) - DiscountAmount); }]]></TransientExpression>
+    <Properties>
+      <SchemaBasedProperties>
+        <FMT_FORMATTER
+          ResId="model.mwgl.vo.OrdersVO.InvoiceTotal_FMT_FORMATTER"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="isCancelable"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Boolean"
+    ColumnType="NUMBER"
+    AliasName="VIEW_ATTR"
+    SQLType="BIT">
+    <RecalcCondition><![CDATA[true]]></RecalcCondition>
+    <TransientExpression><![CDATA[return (OrderStatusCode == 'PENDING');]]></TransientExpression>
+    <Dependencies>
+      <Item
+        Value="OrderStatusCode"/>
+    </Dependencies>
+  </ViewAttribute>
+  <ViewLinkAccessor
+    Name="OrderItemsVO"
+    ViewLink="model.mwgl.vo.links.OrderItemsOrdersFkLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="AddressesVO"
+    ViewLink="model.mwgl.vo.links.Oreder_Address"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="PaymentOptionsVO"
+    ViewLink="model.mwgl.vo.links.Order_PatmentsLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ClientInterface>
+    <Method
+      Name="cancelOrdered">
+      <Return
+        Type="void"/>
+    </Method>
+  </ClientInterface>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93"
+                id="employee_registration_task_flow_definition_employee_registration_task_flow_definition_userRegistrationCreatePageDef"
+                Package="view.pageDefs" SkipValidation="true">
+  <parameters/>
+  <executables/>
+  <bindings>
+    <action id="userRegistrationCreate" RequiresUpdateModel="true"
+            Action="invokeMethod" MethodName="userRegistrationCreate"
+            IsViewObjectMethod="false" DataControl="FodAppModuleDataControl"
+            InstanceName="FodAppModuleDataControl.dataProvider"/>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ShippingOptionsView"
+  Version="11.1.1.64.93"
+  InheritPersonalization="true"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|VarAccess"/>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <SQLQuery>
+    <![CDATA[SELECT ShippingOptionsBase.COST_PER_CLASS1_ITEM, 
+       ShippingOptionsBase.COST_PER_CLASS2_ITEM, 
+       ShippingOptionsBase.COST_PER_CLASS3_ITEM, 
+       ShippingOptionsBase.COUNTRY_CODE, 
+       ShippingOptionsBase.CREATED_BY, 
+       ShippingOptionsBase.CREATION_DATE, 
+       ShippingOptionsBase.FREE_SHIPPING_ALLOWED_FLAG, 
+       ShippingOptionsBase.LAST_UPDATE_DATE, 
+       ShippingOptionsBase.LAST_UPDATED_BY, 
+       ShippingOptionsBase.OBJECT_VERSION_ID, 
+       ShippingOptionsBase.SHIPPING_OPTION_ID, 
+       ShippingOptionTranslations.CREATED_BY AS CREATED_BY1, 
+       ShippingOptionTranslations.CREATION_DATE AS CREATION_DATE1, 
+       ShippingOptionTranslations.LANGUAGE, 
+       ShippingOptionTranslations.LAST_UPDATE_DATE AS LAST_UPDATE_DATE1, 
+       ShippingOptionTranslations.LAST_UPDATED_BY AS LAST_UPDATED_BY1, 
+       ShippingOptionTranslations.OBJECT_VERSION_ID AS OBJECT_VERSION_ID1, 
+       ShippingOptionTranslations.SHIPPING_METHOD, 
+       ShippingOptionTranslations.SHIPPING_OPTION_ID AS SHIPPING_OPTION_ID1, 
+       ShippingOptionTranslations.SHIPPING_TRANSLATIONS_ID, 
+       ShippingOptionTranslations.SOURCE_LANG
+FROM SHIPPING_OPTIONS_BASE ShippingOptionsBase, SHIPPING_OPTION_TRANSLATIONS ShippingOptionTranslations
+WHERE ShippingOptionsBase.SHIPPING_OPTION_ID = ShippingOptionTranslations.SHIPPING_OPTION_ID And
+ShippingOptionTranslations.LANGUAGE = 'EN']]>
+  </SQLQuery>
+  <EntityUsage
+    Name="ShippingOptionsBase"
+    Entity="model.mwgl.eo.ShippingOptionsBase"/>
+  <EntityUsage
+    Name="ShippingOptionTranslations"
+    Entity="model.mwgl.eo.ShippingOptionTranslations"
+    Association="model.mwgl.eo.assoc.ShippingOptionTranslationFkAssoc"
+    AssociationEnd="model.mwgl.eo.assoc.ShippingOptionTranslationFkAssoc.ShippingOptionTranslations"
+    SourceUsage="model.mwgl.vo.ShippingOptionsView.ShippingOptionsBase"
+    ReadOnly="true"
+    Reference="true"
+    DeleteParticipant="false"
+    JoinType="INNER JOIN">
+    <DesignTime>
+      <AttrArray Name="_srcAttributes">
+        <Item Value="model.mwgl.eo.ShippingOptionsBase.ShippingOptionId"/>
+      </AttrArray>
+      <AttrArray Name="_dstAttributes">
+        <Item
+          Value="model.mwgl.eo.ShippingOptionTranslations.ShippingOptionId"/>
+      </AttrArray>
+    </DesignTime>
+  </EntityUsage>
+  <ViewAttribute
+    Name="CostPerClass1Item"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CostPerClass1Item"
+    EntityUsage="ShippingOptionsBase"
+    AliasName="COST_PER_CLASS1_ITEM"/>
+  <ViewAttribute
+    Name="CostPerClass2Item"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CostPerClass2Item"
+    EntityUsage="ShippingOptionsBase"
+    AliasName="COST_PER_CLASS2_ITEM"/>
+  <ViewAttribute
+    Name="CostPerClass3Item"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CostPerClass3Item"
+    EntityUsage="ShippingOptionsBase"
+    AliasName="COST_PER_CLASS3_ITEM"/>
+  <ViewAttribute
+    Name="CountryCode"
+    PrecisionRule="true"
+    EntityAttrName="CountryCode"
+    EntityUsage="ShippingOptionsBase"
+    AliasName="COUNTRY_CODE"/>
+  <ViewAttribute
+    Name="CreatedBy"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CreatedBy"
+    EntityUsage="ShippingOptionsBase"
+    AliasName="CREATED_BY"/>
+  <ViewAttribute
+    Name="CreationDate"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CreationDate"
+    EntityUsage="ShippingOptionsBase"
+    AliasName="CREATION_DATE"/>
+  <ViewAttribute
+    Name="FreeShippingAllowedFlag"
+    PrecisionRule="true"
+    EntityAttrName="FreeShippingAllowedFlag"
+    EntityUsage="ShippingOptionsBase"
+    AliasName="FREE_SHIPPING_ALLOWED_FLAG"/>
+  <ViewAttribute
+    Name="LastUpdateDate"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="LastUpdateDate"
+    EntityUsage="ShippingOptionsBase"
+    AliasName="LAST_UPDATE_DATE"/>
+  <ViewAttribute
+    Name="LastUpdatedBy"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="LastUpdatedBy"
+    EntityUsage="ShippingOptionsBase"
+    AliasName="LAST_UPDATED_BY"/>
+  <ViewAttribute
+    Name="ObjectVersionId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="ObjectVersionId"
+    EntityUsage="ShippingOptionsBase"
+    AliasName="OBJECT_VERSION_ID"/>
+  <ViewAttribute
+    Name="ShippingOptionId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="ShippingOptionId"
+    EntityUsage="ShippingOptionsBase"
+    AliasName="SHIPPING_OPTION_ID"/>
+  <ViewAttribute
+    Name="CreatedBy1"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CreatedBy"
+    EntityUsage="ShippingOptionTranslations"
+    AliasName="CREATED_BY1"/>
+  <ViewAttribute
+    Name="CreationDate1"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CreationDate"
+    EntityUsage="ShippingOptionTranslations"
+    AliasName="CREATION_DATE1"/>
+  <ViewAttribute
+    Name="Language"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Language"
+    EntityUsage="ShippingOptionTranslations"
+    AliasName="LANGUAGE"/>
+  <ViewAttribute
+    Name="LastUpdateDate1"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="LastUpdateDate"
+    EntityUsage="ShippingOptionTranslations"
+    AliasName="LAST_UPDATE_DATE1"/>
+  <ViewAttribute
+    Name="LastUpdatedBy1"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="LastUpdatedBy"
+    EntityUsage="ShippingOptionTranslations"
+    AliasName="LAST_UPDATED_BY1"/>
+  <ViewAttribute
+    Name="ObjectVersionId1"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="ObjectVersionId"
+    EntityUsage="ShippingOptionTranslations"
+    AliasName="OBJECT_VERSION_ID1"/>
+  <ViewAttribute
+    Name="ShippingMethod"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="ShippingMethod"
+    EntityUsage="ShippingOptionTranslations"
+    AliasName="SHIPPING_METHOD"/>
+  <ViewAttribute
+    Name="ShippingOptionId1"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="ShippingOptionId"
+    EntityUsage="ShippingOptionTranslations"
+    AliasName="SHIPPING_OPTION_ID1"/>
+  <ViewAttribute
+    Name="ShippingTranslationsId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="ShippingTranslationsId"
+    EntityUsage="ShippingOptionTranslations"
+    AliasName="SHIPPING_TRANSLATIONS_ID"/>
+  <ViewAttribute
+    Name="SourceLang"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="SourceLang"
+    EntityUsage="ShippingOptionTranslations"
+    AliasName="SOURCE_LANG"/>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="ShippingOptionId"/>
+  </AttrArray>
+</ViewObject>

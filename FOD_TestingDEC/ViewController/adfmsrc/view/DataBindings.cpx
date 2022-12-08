@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application"
+             version="11.1.1.64.93" id="DataBindings" SeparateXMLFiles="false"
+             Package="view" ClientType="Generic">
+  <definitionFactories>
+    <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
+             className="oracle.adf.controller.internal.binding.TaskFlowBindingDefFactoryImpl"/>
+    <dtfactory className="oracle.adf.controller.internal.dtrt.binding.BindingDTObjectFactory"/>
+  </definitionFactories>
+  <pageMap>
+    <page path="/OrderPage.jspx" usageId="view_OrderPagePageDef"/>
+    <page path="/Dummy.jspx" usageId="view_DummyPageDef"/>
+    <page path="/Hassain.jspx" usageId="view_HassainPageDef"/>
+    <page path="/CheckOutPage.jspx" usageId="view_CheckOutPagePageDef"/>
+    <page path="/MyProfile.jspx" usageId="view_MyProfilePageDef"/>
+    <page path="/OrderSummary.jspx" usageId="view_OrderSummaryPageDef"/>
+    <page path="/basicEmployeeInformation.jsff"
+          usageId="view_basicEmployeeInformationPageDef"/>
+    <page path="/reviewEmployeeInformation.jsff"
+          usageId="view_reviewEmployeeInformationPageDef"/>
+    <page path="/employeeRegistration.jspx"
+          usageId="view_employeeRegistrationPageDef"/>
+    <page path="/WEB-INF/employee-registration-task-flow-definition.xml#employee-registration-task-flow-definition@userRegistrationCreate"
+          usageId="view_employee_registration_task_flow_definition_employee_registration_task_flow_definition_userRegistrationCreatePageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="view_OrderPagePageDef" path="view.pageDefs.OrderPagePageDef"/>
+    <page id="view_DummyPageDef" path="view.pageDefs.DummyPageDef"/>
+    <page id="view_HassainPageDef" path="view.pageDefs.HassainPageDef"/>
+    <page id="view_CheckOutPagePageDef"
+          path="view.pageDefs.CheckOutPagePageDef"/>
+    <page id="view_MyProfilePageDef" path="view.pageDefs.MyProfilePageDef"/>
+    <page id="view_OrderSummaryPageDef"
+          path="view.pageDefs.OrderSummaryPageDef"/>
+    <page id="view_basicEmployeeInformationPageDef"
+          path="view.pageDefs.basicEmployeeInformationPageDef"/>
+    <page id="view_reviewEmployeeInformationPageDef"
+          path="view.pageDefs.reviewEmployeeInformationPageDef"/>
+    <page id="view_employeeRegistrationPageDef"
+          path="view.pageDefs.employeeRegistrationPageDef"/>
+    <page id="view_employee_registration_task_flow_definition_employee_registration_task_flow_definition_userRegistrationCreatePageDef"
+          path="view.pageDefs.employee_registration_task_flow_definition_employee_registration_task_flow_definition_userRegistrationCreatePageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <BC4JDataControl id="FodAppModuleDataControl" Package="model.mwgl.service"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl"
+                     SupportsTransactions="true" SupportsFindMode="true"
+                     SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true"
+                     Configuration="FodAppModuleLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
+</Application>

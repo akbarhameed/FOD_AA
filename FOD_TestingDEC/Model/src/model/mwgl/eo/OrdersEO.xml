@@ -1,0 +1,627 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="OrdersEO"
+  Version="11.1.1.64.93"
+  InheritPersonalization="true"
+  DBObjectType="table"
+  DBObjectName="ORDERS"
+  AliasName="OrdersEO"
+  BindingStyle="OracleName"
+  UseGlueCode="false"
+  RowClass="model.mwgl.eo.OrdersEOImpl"
+  DefClass="model.mwgl.eo.OrdersEODefImpl"
+  CollClass="model.mwgl.eo.OrdersEOCollImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Init|Delete|Access|DML|Def|Coll"/>
+    <AttrArray Name="_publishEvents"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Attribute
+    Name="OrderId"
+    Precision="15"
+    Scale="0"
+    ColumnName="ORDER_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.DBSequence"
+    ColumnType="NUMBER"
+    TableName="ORDERS"
+    PrimaryKey="true"
+    IsUpdateable="while_insert"
+    DefaultValue="@0"
+    Domain="oracle.jbo.domain.DBSequence"
+    RetrievedOnInsert="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="16"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="OrderDate"
+    IsNotNull="true"
+    ColumnName="ORDER_DATE"
+    SQLType="TIMESTAMP"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="ORDERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="OrderShippedDate"
+    ColumnName="ORDER_SHIPPED_DATE"
+    SQLType="TIMESTAMP"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="ORDERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="OrderStatusCode"
+    IsNotNull="true"
+    Precision="30"
+    ColumnName="ORDER_STATUS_CODE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="ORDERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="OrderTotal"
+    IsNotNull="true"
+    Precision="8"
+    Scale="2"
+    ColumnName="ORDER_TOTAL"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="ORDERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CustomerId"
+    IsNotNull="true"
+    Precision="15"
+    Scale="0"
+    ColumnName="CUSTOMER_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="ORDERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="16"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ShipToName"
+    Precision="120"
+    ColumnName="SHIP_TO_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="ORDERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="120"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ShipToAddressId"
+    IsNotNull="true"
+    Precision="15"
+    Scale="0"
+    ColumnName="SHIP_TO_ADDRESS_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="ORDERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="16"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ShipToPhoneNumber"
+    Precision="20"
+    ColumnName="SHIP_TO_PHONE_NUMBER"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="ORDERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ShippingOptionId"
+    IsNotNull="true"
+    Precision="15"
+    Scale="0"
+    ColumnName="SHIPPING_OPTION_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="ORDERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="16"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="PaymentOptionId"
+    Precision="16"
+    Scale="0"
+    ColumnName="PAYMENT_OPTION_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="ORDERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="17"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="DiscountId"
+    Precision="15"
+    Scale="0"
+    ColumnName="DISCOUNT_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="ORDERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="16"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CouponId"
+    Precision="15"
+    Scale="0"
+    ColumnName="COUPON_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="ORDERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="16"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="FreeShippingFlag"
+    IsNotNull="true"
+    Precision="1"
+    ColumnName="FREE_SHIPPING_FLAG"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="ORDERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CustomerCollectFlag"
+    IsNotNull="true"
+    Precision="1"
+    ColumnName="CUSTOMER_COLLECT_FLAG"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="ORDERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CollectionWarehouseId"
+    Precision="15"
+    Scale="0"
+    ColumnName="COLLECTION_WAREHOUSE_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="ORDERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="16"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="GiftwrapFlag"
+    IsNotNull="true"
+    Precision="1"
+    ColumnName="GIFTWRAP_FLAG"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="ORDERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="GiftwrapMessage"
+    Precision="2000"
+    ColumnName="GIFTWRAP_MESSAGE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="ORDERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="2000"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CreatedBy"
+    IsNotNull="true"
+    Precision="60"
+    ColumnName="CREATED_BY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="ORDERS"
+    IsUpdateable="while_insert"
+    HistoryColumn="DateHistory">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="60"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CreationDate"
+    IsNotNull="true"
+    ColumnName="CREATION_DATE"
+    SQLType="TIMESTAMP"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="ORDERS"
+    IsUpdateable="while_insert"
+    HistoryColumn="DateHistory">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="LastUpdatedBy"
+    IsNotNull="true"
+    Precision="60"
+    ColumnName="LAST_UPDATED_BY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="ORDERS"
+    HistoryColumn="UserHistory">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="60"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="LastUpdateDate"
+    IsNotNull="true"
+    ColumnName="LAST_UPDATE_DATE"
+    SQLType="TIMESTAMP"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="ORDERS"
+    HistoryColumn="DateHistory">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ObjectVersionId"
+    IsNotNull="true"
+    Precision="15"
+    Scale="0"
+    ColumnName="OBJECT_VERSION_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="ORDERS"
+    HistoryColumn="VersionHistory">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="16"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CalculatedOrderTotal"
+    IsQueriable="false"
+    IsPersistent="false"
+    ColumnName="$none$"
+    SQLType="VARCHAR"
+    Type="java.lang.Double"
+    ColumnType="$none$"/>
+  <Attribute
+    Name="DiscountAmount"
+    IsUpdateable="false"
+    IsQueriable="false"
+    IsPersistent="false"
+    ColumnName="$none$"
+    SQLType="DOUBLE"
+    Type="java.lang.Double"
+    ColumnType="$none$">
+    <TransientExpression><![CDATA[10.00]]></TransientExpression>
+  </Attribute>
+  <AccessorAttribute
+    Name="AddressesEO"
+    Association="model.mwgl.eo.assoc.OrdersAddressesFkAssoc"
+    AssociationEnd="model.mwgl.eo.assoc.OrdersAddressesFkAssoc.AddressesEO"
+    AssociationOtherEnd="model.mwgl.eo.assoc.OrdersAddressesFkAssoc.OrdersEO"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="OrderItemsEO"
+    Association="model.mwgl.eo.assoc.OrderItemsOrdersFkAssoc"
+    AssociationEnd="model.mwgl.eo.assoc.OrderItemsOrdersFkAssoc.OrderItemsEO"
+    AssociationOtherEnd="model.mwgl.eo.assoc.OrderItemsOrdersFkAssoc.OrdersEO"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="PaymentOptionsEO"
+    Association="model.mwgl.eo.assoc.OrdersPaymentOptionsFkAssoc"
+    AssociationEnd="model.mwgl.eo.assoc.OrdersPaymentOptionsFkAssoc.PaymentOptionsEO"
+    AssociationOtherEnd="model.mwgl.eo.assoc.OrdersPaymentOptionsFkAssoc.OrdersEO"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="PersonsEO"
+    Association="model.mwgl.eo.assoc.OrdersPersonsFkAssoc"
+    AssociationEnd="model.mwgl.eo.assoc.OrdersPersonsFkAssoc.PersonsEO"
+    AssociationOtherEnd="model.mwgl.eo.assoc.OrdersPersonsFkAssoc.OrdersEO"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="OrdersPk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="ORDERS_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.mwgl.eo.OrdersEO.OrderId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC007570">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C007570"/>
+      <Attr Name="_checkCondition" Value='"ORDER_ID" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes"/>
+  </Key>
+  <Key
+    Name="SysC007571">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C007571"/>
+      <Attr Name="_checkCondition" Value='"ORDER_DATE" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.mwgl.eo.OrdersEO.OrderDate"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC007572">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C007572"/>
+      <Attr Name="_checkCondition" Value='"ORDER_STATUS_CODE" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.mwgl.eo.OrdersEO.OrderStatusCode"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC007573">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C007573"/>
+      <Attr Name="_checkCondition" Value='"ORDER_TOTAL" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.mwgl.eo.OrdersEO.OrderTotal"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC007574">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C007574"/>
+      <Attr Name="_checkCondition" Value='"CUSTOMER_ID" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.mwgl.eo.OrdersEO.CustomerId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC007575">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C007575"/>
+      <Attr Name="_checkCondition" Value='"SHIP_TO_ADDRESS_ID" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.mwgl.eo.OrdersEO.ShipToAddressId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC007576">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C007576"/>
+      <Attr Name="_checkCondition" Value='"SHIPPING_OPTION_ID" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.mwgl.eo.OrdersEO.ShippingOptionId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC007577">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C007577"/>
+      <Attr Name="_checkCondition" Value='"FREE_SHIPPING_FLAG" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.mwgl.eo.OrdersEO.FreeShippingFlag"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC007578">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C007578"/>
+      <Attr Name="_checkCondition" Value='"CUSTOMER_COLLECT_FLAG" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.mwgl.eo.OrdersEO.CustomerCollectFlag"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC007579">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C007579"/>
+      <Attr Name="_checkCondition" Value='"GIFTWRAP_FLAG" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.mwgl.eo.OrdersEO.GiftwrapFlag"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC007580">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C007580"/>
+      <Attr Name="_checkCondition" Value='"CREATED_BY" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.mwgl.eo.OrdersEO.CreatedBy"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC007581">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C007581"/>
+      <Attr Name="_checkCondition" Value='"CREATION_DATE" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.mwgl.eo.OrdersEO.CreationDate"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC007582">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C007582"/>
+      <Attr Name="_checkCondition" Value='"LAST_UPDATED_BY" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.mwgl.eo.OrdersEO.LastUpdatedBy"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC007583">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C007583"/>
+      <Attr Name="_checkCondition" Value='"LAST_UPDATE_DATE" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.mwgl.eo.OrdersEO.LastUpdateDate"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC007584">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C007584"/>
+      <Attr Name="_checkCondition" Value='"OBJECT_VERSION_ID" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.mwgl.eo.OrdersEO.ObjectVersionId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="OrdersAddressesFk">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="ADDRESSES_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="ORDERS_ADDRESSES_FK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.mwgl.eo.OrdersEO.ShipToAddressId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="OrdersDiscountsFk">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="DISCOUNTS_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="ORDERS_DISCOUNTS_FK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.mwgl.eo.OrdersEO.DiscountId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="OrdersDiscountsFk1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="DISCOUNTS_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="ORDERS_DISCOUNTS_FK1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.mwgl.eo.OrdersEO.CouponId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="OrdersPaymentOptionsFk">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PAYMENT_OPTIONS_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="ORDERS_PAYMENT_OPTIONS_FK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.mwgl.eo.OrdersEO.PaymentOptionId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="OrdersPersonsFk">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PERSONS_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="ORDERS_PERSONS_FK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.mwgl.eo.OrdersEO.CustomerId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="OrdersShippingOptionsFk">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="SHIPPING_OPTIONS_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="ORDERS_SHIPPING_OPTIONS_FK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.mwgl.eo.OrdersEO.ShippingOptionId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="OrdersWarehousesFk">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="WAREHOUSES_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="ORDERS_WAREHOUSES_FK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.mwgl.eo.OrdersEO.CollectionWarehouseId"/>
+    </AttrArray>
+  </Key>
+</Entity>

@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="AddressUsagesEO"
+  Version="11.1.1.64.93"
+  InheritPersonalization="true"
+  DBObjectType="table"
+  DBObjectName="ADDRESS_USAGES"
+  AliasName="AddressUsagesEO"
+  BindingStyle="OracleName"
+  UseGlueCode="false"
+  RowClass="model.mwgl.eo.AddressUsagesEOImpl"
+  DefClass="model.mwgl.eo.AddressUsagesEODefImpl"
+  CollClass="model.mwgl.eo.AddressUsagesEOCollImpl">
+  <DesignTime>
+    <AttrArray Name="_publishEvents"/>
+    <Attr Name="_codeGenFlag2" Value="Init|Delete|Access|DML|Def|Coll"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Attribute
+    Name="AddressUsagesId"
+    ColumnName="ADDRESS_USAGES_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.DBSequence"
+    ColumnType="NUMBER"
+    TableName="ADDRESS_USAGES"
+    PrimaryKey="true"
+    IsUpdateable="while_insert"
+    DefaultValue="@0"
+    Domain="oracle.jbo.domain.DBSequence"
+    RetrievedOnInsert="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="AssociatedOwnerId"
+    IsNotNull="true"
+    Precision="15"
+    Scale="0"
+    ColumnName="ASSOCIATED_OWNER_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="ADDRESS_USAGES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="16"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="OwnerTypeCode"
+    IsNotNull="true"
+    Precision="30"
+    ColumnName="OWNER_TYPE_CODE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="ADDRESS_USAGES"
+    DefaultValue="CUST">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="AddressId"
+    IsNotNull="true"
+    Precision="15"
+    Scale="0"
+    ColumnName="ADDRESS_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="ADDRESS_USAGES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="16"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="UsageTypeCode"
+    IsNotNull="true"
+    Precision="30"
+    ColumnName="USAGE_TYPE_CODE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="ADDRESS_USAGES"
+    DefaultValue="SH">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ExpiredFlag"
+    IsNotNull="true"
+    Precision="1"
+    ColumnName="EXPIRED_FLAG"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="ADDRESS_USAGES"
+    DefaultValue="N">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CreatedBy"
+    IsNotNull="true"
+    Precision="60"
+    ColumnName="CREATED_BY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="ADDRESS_USAGES"
+    IsUpdateable="while_insert"
+    HistoryColumn="UserHistory">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="60"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CreationDate"
+    IsNotNull="true"
+    ColumnName="CREATION_DATE"
+    SQLType="TIMESTAMP"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="ADDRESS_USAGES"
+    IsUpdateable="while_insert"
+    HistoryColumn="DateHistory">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="LastUpdatedBy"
+    IsNotNull="true"
+    Precision="60"
+    ColumnName="LAST_UPDATED_BY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="ADDRESS_USAGES"
+    HistoryColumn="UserHistory">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="60"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="LastUpdateDate"
+    IsNotNull="true"
+    ColumnName="LAST_UPDATE_DATE"
+    SQLType="TIMESTAMP"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="ADDRESS_USAGES"
+    HistoryColumn="DateHistory">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ObjectVersionId"
+    IsNotNull="true"
+    Precision="15"
+    Scale="0"
+    ColumnName="OBJECT_VERSION_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="ADDRESS_USAGES"
+    HistoryColumn="VersionHistory">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="16"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="PersonsEO"
+    Association="model.mwgl.eo.assoc.AddressUsagesPersonsFkAssoc"
+    AssociationEnd="model.mwgl.eo.assoc.AddressUsagesPersonsFkAssoc.PersonsEO"
+    AssociationOtherEnd="model.mwgl.eo.assoc.AddressUsagesPersonsFkAssoc.AddressUsagesEO"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="AddressesEO"
+    Association="model.mwgl.eo.assoc.AddressUsagesAddressesFkAssoc"
+    AssociationEnd="model.mwgl.eo.assoc.AddressUsagesAddressesFkAssoc.AddressesEO"
+    AssociationOtherEnd="model.mwgl.eo.assoc.AddressUsagesAddressesFkAssoc.AddressUsagesEO"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="AddressUsagesChkExpired">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="ADDRESS_USAGES_CHK_EXPIRED"/>
+      <Attr Name="_checkCondition" Value="EXPIRED_FLAG in ('Y','N')"/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.mwgl.eo.AddressUsagesEO.ExpiredFlag"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="AddressUsagesPk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="ADDRESS_USAGES_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.mwgl.eo.AddressUsagesEO.AddressUsagesId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC007533">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C007533"/>
+      <Attr Name="_checkCondition" Value='"ADDRESS_USAGES_ID" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes"/>
+  </Key>
+  <Key
+    Name="SysC007534">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C007534"/>
+      <Attr Name="_checkCondition" Value='"ASSOCIATED_OWNER_ID" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.mwgl.eo.AddressUsagesEO.AssociatedOwnerId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC007535">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C007535"/>
+      <Attr Name="_checkCondition" Value='"OWNER_TYPE_CODE" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.mwgl.eo.AddressUsagesEO.OwnerTypeCode"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC007536">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C007536"/>
+      <Attr Name="_checkCondition" Value='"ADDRESS_ID" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.mwgl.eo.AddressUsagesEO.AddressId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC007537">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C007537"/>
+      <Attr Name="_checkCondition" Value='"USAGE_TYPE_CODE" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.mwgl.eo.AddressUsagesEO.UsageTypeCode"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC007538">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C007538"/>
+      <Attr Name="_checkCondition" Value='"EXPIRED_FLAG" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.mwgl.eo.AddressUsagesEO.ExpiredFlag"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC007539">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C007539"/>
+      <Attr Name="_checkCondition" Value='"CREATED_BY" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.mwgl.eo.AddressUsagesEO.CreatedBy"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC007540">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C007540"/>
+      <Attr Name="_checkCondition" Value='"CREATION_DATE" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.mwgl.eo.AddressUsagesEO.CreationDate"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC007541">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C007541"/>
+      <Attr Name="_checkCondition" Value='"LAST_UPDATED_BY" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.mwgl.eo.AddressUsagesEO.LastUpdatedBy"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC007542">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C007542"/>
+      <Attr Name="_checkCondition" Value='"LAST_UPDATE_DATE" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.mwgl.eo.AddressUsagesEO.LastUpdateDate"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC007543">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C007543"/>
+      <Attr Name="_checkCondition" Value='"OBJECT_VERSION_ID" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.mwgl.eo.AddressUsagesEO.ObjectVersionId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="AddressUsagesAddressesFk">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="ADDRESSES_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="ADDRESS_USAGES_ADDRESSES_FK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.mwgl.eo.AddressUsagesEO.AddressId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="AddressUsagesPersonsFk">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PERSONS_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="ADDRESS_USAGES_PERSONS_FK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.mwgl.eo.AddressUsagesEO.AssociatedOwnerId"/>
+    </AttrArray>
+  </Key>
+</Entity>

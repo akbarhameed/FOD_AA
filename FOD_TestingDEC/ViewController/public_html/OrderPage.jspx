@@ -1,0 +1,435 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:trh="http://myfaces.apache.org/trinidad/html"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view>
+    <af:document id="d1">
+      <af:messages id="m1"/>
+      <af:form id="f1">
+        <af:panelStretchLayout id="psl1">
+          <f:facet name="bottom"/>
+          <f:facet name="center">
+            <af:panelTabbed id="pt1" partialTriggers="soc1">
+              <af:showDetailItem text="Order--#{bindings.OrderItemsVO.inputValue}" id="sdi1">
+                <af:panelGroupLayout id="pgl14" layout="scroll"
+                                     inlineStyle="Width:100%">
+                  <af:panelGroupLayout id="pgl13" layout="vertical">
+                    <af:spacer width="10" height="10" id="s12"/>
+                    <af:panelBox text="General information" id="pb5">
+                      <f:facet name="toolbar">
+                        <af:group id="g2">
+                          <af:toolbar id="t1">
+                            <af:commandButton actionListener="#{bindings.Previous.execute}"
+                                              text="Previous"
+                                              partialSubmit="true" id="cb2"/>
+                            <af:commandButton actionListener="#{bindings.Next.execute}"
+                                              text="Next" partialSubmit="true"
+                                              id="cb1"/>
+                          </af:toolbar>
+                        </af:group>
+                      </f:facet>
+                      <af:panelGroupLayout id="pgl15" layout="vertical"
+                                           valign="top">
+                        <trh:tableLayout cellPadding="10" width="100%"
+                                             inlineStyle="height:100%;">
+                              <trh:rowLayout>
+                                <trh:cellFormat width="50%" height="100%"
+                                                valign="top">
+                              <af:panelBox text="Shipment Information" id="pb1"
+                                           background="default"
+                                           ramp="highlight"
+                                           contentStyle="height:150px;width:100%;vertical-align: top;">
+                                           <f:facet name="toolbar">
+                                           <af:toolbar id="t3">
+                                    <af:commandButton text="Edit" rendered="#{bindings.isCancelable.inputValue}"
+                                                      id="cb3">
+                                                  <af:showPopupBehavior popupId="p2"/>    
+                                                     </af:commandButton>
+                                                     <af:popup id="p2" >
+                                                     <af:dialog id="d3">
+                                                     
+                                                     <af:panelFormLayout id="pfl4">
+  <af:inputText id="it1" value="#{bindings.ShipToName.inputValue}" label="ShipToName1"/>
+                                                     <af:inputText id="it2" value="#{bindings.Address1.inputValue}" label="Address1"/>
+                                                     
+                                                     <af:inputText id="it3" value="#{bindings.Address2.inputValue}" label="Address2"/>
+                                                     
+                                                     <af:inputText id="it4" value="#{bindings.City.inputValue}" label="City"/>
+                                                     <af:inputText id="it7" value="#{bindings.PostalCode.inputValue}" label="PostalCode"/>
+                                                     <af:inputText id="it5" value="#{bindings.StateProvince.inputValue}" label="StateProvince"/>
+                                                     <af:inputComboboxListOfValues id="iclov1" value="#{bindings.CountryId2.inputValue}" label="Country"
+                                                           model="#{bindings.CountryId2.listOfValuesModel}"/>
+                                            <af:selectOneRadio value="#{bindings.ShippingOptionId1.inputValue}"
+                                                label="#{bindings.ShippingOptionId1.label}"
+                                                id="sor2">
+                                        <f:selectItems value="#{bindings.ShippingOptionId1.items}"/>
+                                                 </af:selectOneRadio>               
+                                                    
+                                        
+                                          </af:panelFormLayout>
+                                                     
+                                                     </af:dialog>
+                                                     </af:popup>
+                                  </af:toolbar>
+                                           </f:facet>
+                                <af:panelGroupLayout id="pgl1">
+                                  <af:panelHeader text="Shipping Address" id="ph1">
+                                    
+                                    <af:panelGroupLayout id="pgl2"
+                                                         layout="vertical">
+                                      <af:spacer id="s2" width="30"
+                                                 height="10"/>
+                                      <af:outputText id="ot1"
+                                                     value="#{bindings.ShipToName.inputValue}"/>
+                                      <af:spacer id="si" width="10"
+                                                 height="10"/>
+                                      <af:outputText id="ot2"
+                                                     value="#{bindings.Address1.inputValue}"/>
+                                      <af:spacer id="s1" width="20"
+                                                 height="10"/>
+                                      <af:outputText id="ot3"
+                                                     value="#{bindings.Address2.inputValue}"/>
+                                      <af:spacer id="spacer1"/>
+                                    </af:panelGroupLayout>
+                                    <af:panelGroupLayout id="pgl3"
+                                                         layout="horizontal">
+                                      <af:outputText id="ot4"
+                                                     value="#{bindings.City.inputValue}"/>
+                                      <af:spacer id="s4" width="30"/>
+                                      <af:outputText id="ot5"
+                                                     value="#{bindings.StateProvince.inputValue}"/>
+                                      <af:spacer id="s3" width="30"/>
+                                      <af:outputText id="ot6"
+                                                     value="#{bindings.PostalCode.inputValue}"/>
+                                    </af:panelGroupLayout>
+                                    <af:spacer id="spacer2" width="30"
+                                               height="10"/>
+                                    <af:outputText id="ot7"
+                                                   value="#{bindings.CountryId.inputValue}"/>
+                                                   <af:panelHeader text="Shipping Speed"
+                                                                   id="ph2">
+                                                    <af:selectOneRadio id="sor1" value="#{bindings.ShippingOptionId1.inputValue}" readOnly="true">
+                                                   <f:selectItems id="si2" value="#{bindings.ShippingOptionId1.items}"/>
+                                              </af:selectOneRadio>
+                                              </af:panelHeader>
+                                      
+                                   
+                                                   
+                                  </af:panelHeader>
+                                </af:panelGroupLayout>
+                              </af:panelBox>
+                            </trh:cellFormat>
+                             <trh:cellFormat width="50%" valign="top">
+                              <af:panelBox id="pb2" text="Expencess Summery"   contentStyle="height:150px;width:100%;vertical-align: top;">
+                                <af:panelFormLayout id="pfl2">
+                                  <af:panelLabelAndMessage id="plam6"
+                                                           label="Items :">
+                                    <af:outputText id="ot13"
+                                                   value="#{bindings.CalculatedOrderTotal1.inputValue}"/>
+                                  </af:panelLabelAndMessage>
+                                  <af:panelLabelAndMessage id="plam7"
+                                                           label="Shipping Handling :">
+                                    <af:outputText id="ot14"
+                                                   value="#{bindings.TotalShippingCost.inputValue}"/>
+                                  </af:panelLabelAndMessage>
+                                  <af:panelLabelAndMessage id="plam9"
+                                                           label="Discounts: ">
+                                    <af:outputText id="ot17"
+                                                   value="#{bindings.DiscountAmount.inputValue}"/>
+                                  </af:panelLabelAndMessage>
+                                  <af:separator id="s6"/>
+                                  <af:panelLabelAndMessage id="plam10"
+                                                           label="Grand Total: ">
+                                    <af:outputText id="ot18"
+                                                   value="#{bindings.InvoiceTotal.inputValue}"/>
+                                  </af:panelLabelAndMessage>
+                                  <af:panelLabelAndMessage id="plam11"
+                                                           label="Order Status: ">
+                                    <af:outputText id="ot19"
+                                                   value="#{bindings.OrderStatusCode.inputValue}"/>
+                                  </af:panelLabelAndMessage>
+                                </af:panelFormLayout>
+                              </af:panelBox>
+                            </trh:cellFormat>
+                          </trh:rowLayout>
+                          
+                          
+                          
+                          <trh:rowLayout id="rl1">
+                                <trh:cellFormat width="50%" valign="top"
+                                                id="cf1">
+                              <af:panelBox id="pb3" text="Billing Information"
+                                           contentStyle="height:150px;width:100%;vertical-align: top;">
+                                <af:panelGroupLayout id="pgl6"
+                                                     layout="vertical">
+                                  <af:panelGroupLayout id="pgl7"
+                                                       layout="horizontal">
+                                    <af:outputText id="ot20"
+                                                   value="#{bindings.LastName.inputValue}"/>
+                                    <af:spacer id="s9" width="20"/>
+                                    <af:outputText id="ot21"
+                                                   value="#{bindings.Address11.inputValue}"/>
+                                    <af:spacer id="s10" width="20"/>
+                                    <af:outputText id="ot22"
+                                                   value="#{bindings.Address21.inputValue}"/>
+                                  </af:panelGroupLayout>
+                                  <af:outputText id="ot23"
+                                                 value="#{bindings.City1.inputValue}"/>
+                                  <af:spacer id="s7" width="20"/>
+                                  <af:panelGroupLayout id="pgl8"
+                                                       layout="horizontal">
+                                    <af:outputText id="ot24"
+                                                   value="#{bindings.PostalCode1.inputValue}"/>
+                                    <af:spacer id="s8" width="20"/>
+                                    <af:outputText id="ot25"
+                                                   value="#{bindings.StateProvince1.inputValue}"/>
+                                    <af:spacer id="s11" width="20"/>
+                                  </af:panelGroupLayout>
+                                  <af:panelGroupLayout id="pgl9"
+                                                       layout="vertical">
+                                    <af:outputText id="ot26"
+                                                   value="#{bindings.CountryId1.inputValue}"/>
+                                  </af:panelGroupLayout>
+                                </af:panelGroupLayout>
+                              </af:panelBox>
+                            </trh:cellFormat>
+                            <trh:cellFormat id="cf5"
+                                            inlineStyle="white-space:nowrap;">
+                              <af:panelBox id="pd2" text="payment Information"   contentStyle="height:150px;width:100%;vertical-align: top;">
+                              <f:facet name="toolbar">
+                                  <af:toolbar id="t4">
+                                    <af:commandButton text="Edit" id="cb4" rendered="#{bindings.isCancelable.inputValue}">
+                                      <af:showPopupBehavior popupId="p3"/>
+                                    </af:commandButton>
+                                  </af:toolbar>
+                                </f:facet>
+                          <af:popup id="p3" >
+                                                     <af:dialog id="d4">
+                                                    <af:panelFormLayout id="pfl5">
+             <af:selectOneListbox id="sol1" label="Payment Option Code" 
+             value="#{bindings.PaymentOptionId.inputValue}">
+          <f:selectItems value="#{bindings.PaymentOptionId.items}"/>
+      
+      </af:selectOneListbox>                                  
+               </af:panelFormLayout>
+                                                     
+                         </af:dialog>
+                                     </af:popup>
+                                                     
+                                <af:panelFormLayout id="pfl1">
+                                  <af:panelLabelAndMessage id="plam1"
+                                                           label="payment Type :">
+                                    <af:outputText id="ot8"
+                                                   value="#{bindings.PaymentTypeCode.inputValue}"/>
+                                  </af:panelLabelAndMessage>
+                                  <af:panelLabelAndMessage id="plam2"
+                                                           label="Account Number :">
+                                    <af:outputText id="ot9"
+                                                   value="#{bindings.AccountNumber.inputValue}"/>
+                                  </af:panelLabelAndMessage>
+                                  <af:panelLabelAndMessage id="plam3"
+                                                           label="Card Type Code :">
+                                    <af:outputText id="ot10"
+                                                   value="#{bindings.CardTypeCode.inputValue}"/>
+                                  </af:panelLabelAndMessage>
+                                  <af:panelLabelAndMessage id="plam4"
+                                                           label="Expire Date :">
+                                    <af:outputText id="ot11"
+                                                   value="#{bindings.ExpireDate.inputValue}"/>
+                                  </af:panelLabelAndMessage>
+                                  <af:panelLabelAndMessage id="plam5"
+                                                           label="Check Digits :">
+                                    <af:outputText id="ot12"
+                                                   value="#{bindings.CheckDigits.inputValue}"/>
+                                  </af:panelLabelAndMessage>
+                                  <af:panelLabelAndMessage id="plam8"
+                                                           label="Valid Date :">
+                                    <af:outputText id="ot15"
+                                                   value="#{bindings.ValidFromDate.inputValue}"/>
+                                    <af:spacer id="s5" width="20"/>
+                                    <af:outputText id="ot16"
+                                                   value="#{bindings.ValidToDate.inputValue}"/>
+                                  </af:panelLabelAndMessage>
+                                </af:panelFormLayout>
+                              </af:panelBox>
+                            </trh:cellFormat>
+                          </trh:rowLayout>
+                      <trh:rowLayout>
+                                <trh:cellFormat width="100%" columnSpan="2">
+                              <af:panelBox id="pb4" text="Gift Message">
+                              <f:facet name="toolbar" >
+                                  <af:toolbar id="t5">
+                                    <af:commandButton text="Edit" id="cb5" rendered="#{bindings.isCancelable.inputValue}">
+                                      <af:showPopupBehavior popupId="p4"/>
+                                    </af:commandButton>
+                                  </af:toolbar>
+                                </f:facet>
+                                                     <af:popup id="p4" >
+                                                     <af:dialog id="d5">
+                                                    <af:panelFormLayout id="pfl6">
+                                            <af:richTextEditor id="rte1"
+                                                   value="#{bindings.GiftwrapMessage.inputValue}"
+                                                   contentStyle="height:150px;width:100%"/>
+                                            
+                                          </af:panelFormLayout>
+                                                     
+                                                     </af:dialog>
+                                                     </af:popup>
+                                                     <af:richTextEditor id="rte2"
+                                                   value="#{bindings.GiftwrapMessage.inputValue}"
+                                                   contentStyle="height:150px;width:100%"/>
+                                                     
+                                                     
+                                
+                              </af:panelBox>
+                    </trh:cellFormat>
+                     </trh:rowLayout>
+                         </trh:tableLayout>   
+                      </af:panelGroupLayout>
+                    </af:panelBox>
+                    
+                    
+                    
+                    
+                  </af:panelGroupLayout>
+                </af:panelGroupLayout>
+              </af:showDetailItem>
+              <af:showDetailItem text="Order Item" id="sdi2">
+              <af:panelBox id="pb6" text="Item(s) Summary">
+              <af:panelCollection id="pc1" 
+              inlineStyle="Width:100%">
+              <af:table id="t2" value="#{bindings.OrderItemsVO.collectionModel}"
+              selectedRowKeys="#{bindings.OrderItemsVO.collectionModel.selectedRow}"
+              var="row" rowSelection="single"
+              selectionListener="#{bindings.OrderItemsVO.collectionModel.makeCurrent}">
+              <af:column id="c3" headerText="Product Id">
+              <af:image id="i1" source="/imageservlet?detail=#{row.ProductId}"/>
+              
+              
+              <af:commandLink id="cl1" text=" Large image link">
+              <af:showPopupBehavior popupId="p1" triggerType="mouseOver"/>
+              
+              </af:commandLink>
+              <af:popup id="p1">
+              <af:dialog id="d2" type="ok">
+              <af:outputText id="ot31" value="We will complited Image soon......!"/>
+              </af:dialog>
+              </af:popup>
+              </af:column>
+             <af:column id="c2" headerText="Name" width="500" noWrap="false">
+             <af:showDetail id="sd1" disclosed="true" disclosedText="#{row.ProductName} [#{row.CategoryName}]" 
+             undisclosedText="#{row.ProductName} [#{row.CategoryName}]">
+             
+             <af:outputText id="ot30" value="#{row.Description}" truncateAt="435"/>
+             
+             </af:showDetail>
+             </af:column>
+              
+              <af:column id="c1" headerText="List Price" width="150">
+            <af:panelFormLayout id="pfl0">
+           <f:facet name="footer"/>
+           
+          <af:panelLabelAndMessage id="plam12" label=" List Price">
+              <af:outputText id="ot27" value="#{row.ListPrice}"/>
+              </af:panelLabelAndMessage>
+              
+               <af:panelLabelAndMessage id="plam14" label=" Shipping Cost">
+              <af:outputText id="ot28" value="#{row.ShippingCost}"/>
+              </af:panelLabelAndMessage>
+              
+               <af:panelLabelAndMessage id="plam13" label=" Quantity">
+              <af:outputText id="ot29" value="#{row.Quantity}"/>
+              </af:panelLabelAndMessage>
+              
+              </af:panelFormLayout>
+                 </af:column>
+                </af:table>
+                </af:panelCollection>
+              </af:panelBox>
+              
+              <af:panelBox id="pb7" text="Item Details"
+                           partialTriggers="pc1:t2">
+            <trh:tableLayout width="100%" cellSpacing="10">
+                          <trh:rowLayout>
+                            <trh:cellFormat valign="top"
+                                            wrappingDisabled="true">
+            <af:panelGroupLayout layout="vertical" id="pgl20">
+                                <af:panelGroupLayout layout="horizontal"
+                                                     valign="top" id="pgl21">
+                                 <af:image id="i2" source="/imageservlet?detail=#{bindings.ProductId}"/>
+                            <af:showDetail disclosed="true"
+                                                 disclosedText="#{bindings.ProductName.inputValue}"
+                                                 undisclosedText="#{bindings.ProductName.inputValue}"
+                                                 id="sd2">
+                                    <af:panelFormLayout id="pfl3"> 
+                                    <af:panelLabelAndMessage label="Category:"
+                                                               id="plam16">
+                                        <af:outputText value="#{bindings.CategoryName.inputValue}"
+                                                       id="ot32"/>
+                                      </af:panelLabelAndMessage>
+                                      <af:panelLabelAndMessage label="List Price:"
+                                                               id="plam15">
+                                        <af:outputText value="#{bindings.ListPrice.inputValue}"
+                                                       id="ot33"/>
+                                      </af:panelLabelAndMessage> 
+                                     <af:spacer width="10" height="10" id="s14"/>
+                                <af:panelGroupLayout layout="horizontal"
+                                                     halign="center"
+                                                     inlineStyle="Width:100%;"
+                                                     id="pgl22">
+                                  <af:inputNumberSlider label="Quantity"
+                                                        value="#{bindings.Quantity.inputValue}"
+                                                        autoSubmit="true"
+                                                        id="quantitySlider"
+                                                        minimumIncrement="1"
+                                                        majorIncrement="5"
+                                                        maximum="20">
+                                    <f:convertNumber/>
+                                  </af:inputNumberSlider>
+                                </af:panelGroupLayout>
+                                
+            </af:panelFormLayout>
+            </af:showDetail>
+            </af:panelGroupLayout>
+            </af:panelGroupLayout>
+            </trh:cellFormat>
+            <trh:cellFormat valign="top">
+            <af:panelGroupLayout id="pgl4" layout="vertical">
+            <af:showDetail id="sd3" disclosed="true" undisclosedText="Description" disclosedText="Description">
+            <af:outputText id="ot34" value="#{bindings.Description.inputValue}" truncateAt="435"/>
+            </af:showDetail>
+            <af:spacer id="s13" width="10"/>
+             <af:showDetail id="sd4" disclosed="true" undisclosedText="AdditionalInfo" disclosedText="AdditionalInfo">
+            <af:outputText id="ot35" value="#{bindings.AdditionalInfo.inputValue}" truncateAt="435"/>
+            </af:showDetail>
+            </af:panelGroupLayout>
+            </trh:cellFormat>
+            </trh:rowLayout>
+            </trh:tableLayout>
+            
+              </af:panelBox>
+               </af:showDetailItem>
+            </af:panelTabbed>
+          </f:facet>
+          <f:facet name="start"/>
+          <f:facet name="end"/>
+          <f:facet name="top">
+          
+          <af:panelGroupLayout id="pgl0" halign="right" layout="vertical">
+         <af:selectOneChoice id="soc1" value="#{bindings.OrderId.inputValue}"
+           autoSubmit="true" label="Choose Order">
+          <f:selectItems id="si1" value="#{bindings.OrderId.items}"/>
+           </af:selectOneChoice>
+          <af:commandLink id="cl2" text=">>>cancelOrderLink" rendered="#{bindings.isCancelable.inputValue}"
+                          actionListener="#{pageFlowScope.MyOrderBean.invokeCancelOrder}"
+                          inlineStyle="color:red;"/>
+</af:panelGroupLayout>
+          </f:facet>
+        </af:panelStretchLayout>
+      </af:form>
+    </af:document>
+  </f:view>
+</jsp:root>

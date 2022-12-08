@@ -1,0 +1,360 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view>
+    <af:document id="d1">
+      <af:messages id="m1"/>
+      <af:form id="f1">
+        <af:panelStretchLayout id="psl1">
+          <f:facet name="bottom"/>
+          <f:facet name="center">
+            <af:panelTabbed id="pt1">
+              <af:showDetailItem text="Basic Information" id="sdi1">
+              <af:panelFormLayout id="pfl0" maxColumns="2" rows="6">
+  <f:facet name="footer"/>
+              <af:inputText id="it1" value="#{bindings.PrincipalName.inputValue}" label="UsaerName"/>
+              <af:inputText id="it2" value="#{bindings.Title.inputValue}" label="Title"/>
+              <af:inputText id="it3" value="#{bindings.FirstName.inputValue}" label="First Name"/>
+              <af:inputText id="it5" value="#{bindings.LastName.inputValue}" label="Last Name"/>
+              <af:inputText id="it4" value="#{bindings.DateOfBirth.inputValue}" label="Date Of Birth"/>
+              <af:selectOneChoice value="#{bindings.Gender.inputValue}"
+                                              label="#{bindings.Gender.label}"
+                                              id="soc1">
+                            <f:selectItems value="#{bindings.Gender.items}"
+                                           id="si10"/>
+                          </af:selectOneChoice>
+                <af:selectOneChoice value="#{bindings.MaritalStatusCode.inputValue}"
+                                              label="#{bindings.MaritalStatusCode.label}"
+                                              id="soc2">
+                            <f:selectItems value="#{bindings.MaritalStatusCode.items}"
+                                           id="si9"/>
+                          </af:selectOneChoice>
+              <af:inputText id="it6" value="#{bindings.PhoneNumber.inputValue}" label="PhoneNumber"/>
+              <af:inputText id="it7" value="#{bindings.MobilePhoneNumber.inputValue}" label="Mobile Phone Number"/>
+              <af:inputText id="it8" value="#{bindings.Email.inputValue}" label="Email"/>
+              <af:selectOneChoice value="#{bindings.PersonTypeCode.inputValue}"
+                                              label="#{bindings.PersonTypeCode.label}"
+                                              id="soc3">
+                            <f:selectItems value="#{bindings.PersonTypeCode.items}"
+                                           id="si12"/>
+                          </af:selectOneChoice>
+              <af:inputText id="it9" value="#{bindings.RegisteredDate.inputValue}" label="Registered Date"/>
+              <af:inputText id="it10" value="#{bindings.CreditLimit.inputValue}" label="Credit Limit"/>
+              <af:inputText id="it11" value="#{bindings.ContactByAffilliatesFlag.inputValue}" label="Contact By Affilliates Flag"/>
+              <af:inputText id="it12" value="#{bindings.ApproximateIncome.inputValue}" label="Approximate Income"/>
+              <af:inputText id="it13" value="#{bindings.ContactableFlag.inputValue}" label="Contactable Flag"/>
+</af:panelFormLayout>
+              
+              </af:showDetailItem>
+              <af:showDetailItem text="Addresses" id="showDetailItem1">
+                <af:panelCollection id="pc1">
+                  <f:facet name="menus"/>
+                  <f:facet name="toolbar">
+                    <af:toolbar id="t3">
+                      <af:commandButton
+                                        text="Add" 
+                                        id="cb3" partialSubmit="true"/>
+               <af:commandToolbarButton id="ctb2" text="Edit"
+                                        partialSubmit="true">
+                        <af:showPopupBehavior popupId="p2"
+                                              triggerType="action"/>
+                      </af:commandToolbarButton>
+                <af:commandToolbarButton id="ctb1" text="Remove">
+                        <af:showPopupBehavior popupId="p1"
+                                              triggerType="action"/>
+                      </af:commandToolbarButton>
+              
+              </af:toolbar>
+                  </f:facet>
+                  <f:facet name="statusbar"/>
+                  <af:table id="t2"
+                            value="#{bindings.AddressAndUsageVO1.collectionModel}"
+                            var="row" rowSelection="single"
+                            binding="#{MyProfileBean.table}"
+                            selectionListener="#{bindings.AddressAndUsageVO1.collectionModel.makeCurrent}"
+                            partialTriggers="::cb3">
+                    <af:column id="c1" headerText="Address" width="250">
+                      <af:outputText id="ot1" value="#{row.AddressLabel}"/>
+                    </af:column>
+                    <af:column id="c2" headerText="Address Usage Type Code"
+                              >
+                      <af:outputText id="ot2" value="#{row.UsageTypeCode}"/>
+                    </af:column>
+                  </af:table>
+                  <af:popup id="p2" contentDelivery="immediate"
+                            partialTriggers="ctb2 cb3">
+                    <af:dialog id="d3" partialTriggers="ctb2 cb3">
+                      <af:panelFormLayout id="pfl1" partialTriggers="ctb2 cb3">
+                        <f:facet name="footer"/>
+                        <af:selectOneChoice value="#{bindings.UsageTypeCode.inputValue}"
+                                            label="Address Usage Type"
+                                            id="soc4">
+                          <f:selectItems value="#{bindings.UsageTypeCode.items}"
+                                         id="si1"/>
+                        </af:selectOneChoice>
+                        <af:inputText id="it14"
+                                      value="#{bindings.Address1.inputValue}"
+                                      label="Address 1"/>
+                        <af:inputText id="it15"
+                                      value="#{bindings.City.inputValue}"
+                                      label="City"/>
+                        <af:inputText id="it16"
+                                      value="#{bindings.StateProvince.inputValue}"
+                                      label="State Province"/>
+                        <af:inputText id="it17"
+                                      value="#{bindings.PostalCode.inputValue}"
+                                      label="Postal Code"/>
+                        <af:inputComboboxListOfValues id="countryIdId"
+                                                      popupTitle="Search and Select: #{bindings.CountryId.hints.label}"
+                                                      value="#{bindings.CountryId.inputValue}"
+                                                      label="Country Id"
+                                                      model="#{bindings.CountryId.listOfValuesModel}"
+                                                      columns="#{bindings.CountryId.hints.displayWidth}"
+                                                      shortDesc="#{bindings.CountryId.hints.tooltip}">
+                          <f:validator binding="#{bindings.CountryId.validator}"/>
+                        </af:inputComboboxListOfValues>
+                      </af:panelFormLayout>
+                    </af:dialog>
+                  </af:popup>
+                  <af:popup id="p1">
+                    <af:dialog id="d2"
+                               dialogListener="#{MyProfileBean.addressRemoveDL}"
+                               type="okCancel">
+                               <af:outputText id="ot3" value="Are you sure you want to Delete"/>
+                               </af:dialog>
+                  </af:popup>
+                </af:panelCollection>
+                
+              </af:showDetailItem>           
+              <af:showDetailItem text="Payment Options" id="showDetailItem2">
+
+                <af:panelGroupLayout layout="scroll"
+                                           id="paymentOptionsGroupPanel">
+                        <af:panelCollection inlineStyle="width:800px; border-color:transparent;"
+                                            id="payC">
+                          <f:facet name="toolbar">
+                            <af:toolbar id="t4">
+                              <af:spacer width="10" height="5" id="s4"/>
+                              <af:commandToolbarButton text="New"
+                                                       icon="/images/new_ena.png"
+                                                       partialSubmit="true"
+                                                       id="newPaymentOptionsButton"
+                                                       immediate="true"
+                                                      actionListener="#{MyProfileBean.addPaymentsAL}"/>
+                              <af:spacer width="5" height="5" id="s5"/>
+                              <af:commandToolbarButton text="Edit"
+                                                       id="editPaymentOptionsButton"
+                                                       partialSubmit="true"
+                                                       icon="/images/update_ena.png"
+                                                       >
+                                
+                              </af:commandToolbarButton>
+                              <af:spacer width="5" height="5" id="s6"/>
+                              <af:commandToolbarButton text="Remove"
+                                                       icon="/images/delete_ena.png"
+                                                       partialSubmit="true"
+                                                       immediate="true"
+                                                       partialTriggers="payT"
+                                                       id="deletePaymentOptionsButton">
+                          <af:showPopupBehavior popupId="::confirmDeletePaymentOptionsPopup"
+                                                triggerType="action"/>
+                        </af:commandToolbarButton>
+                            </af:toolbar>
+                          </f:facet>
+                          <af:table value="#{bindings.PaymentOptionsForUser.collectionModel}"
+                                    var="row"
+                                    rows="#{bindings.PaymentOptionsForUser.rangeSize}"
+                                   
+                                    id="payT" rowSelection="multiple"
+                            
+                                   binding="#{MyProfileBean.paymentTable}"
+                                    partialTriggers=":::addPaymentOptionsDialog">
+                            <af:column sortProperty="PaymentTypeCode"
+                                       sortable="true"
+                                       headerText="#{bindings.PaymentOptionsForUser.hints.PaymentTypeCode.label}"
+                                       id="c3">
+                              <af:outputText value="#{row.PaymentTypeCode}"
+                                             id="ot8"/>
+                            </af:column>
+                            <af:column sortProperty="AccountNumber"
+                                       sortable="true"
+                                       headerText="#{bindings.PaymentOptionsForUser.hints.AccountNumber.label}"
+                                       id="c4">
+                              <af:outputText value="#{row.AccountNumber}"
+                                             id="ot4">
+                                <af:convertNumber groupingUsed="false"
+                                                  pattern="#{bindings.PaymentOptionsForUser.hints.AccountNumber.format}"/>
+                              </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="CardTypeCode"
+                                       sortable="true"
+                                       headerText="#{bindings.PaymentOptionsForUser.hints.CardTypeCode.label}"
+                                       id="c5">
+                              <af:outputText value="#{row.CardTypeCode}"
+                                             id="ot5"/>
+                            </af:column>
+                            <af:column sortProperty="RoutingIdentifier"
+                                       sortable="true"
+                                       headerText="#{bindings.PaymentOptionsForUser.hints.RoutingIdentifier.label}"
+                                       id="c6">
+                              <af:outputText value="#{row.RoutingIdentifier}"
+                                             id="ot6"/>
+                            </af:column>
+                            <af:column sortProperty="InstitutionName"
+                                       sortable="true"
+                                       headerText="#{bindings.PaymentOptionsForUser.hints.InstitutionName.label}"
+                                       id="c7">
+                              <af:outputText value="#{row.InstitutionName}"
+                                             id="ot7"/>
+                            </af:column>
+                          </af:table>
+                        </af:panelCollection>
+                         <af:popup id="confirmDeletePaymentOptionsPopup"
+                  contentDelivery="lazyUncached">
+          <af:dialog closeIconVisible="false" modal="true"
+                     title="Warning"
+                     
+                     id="confirmDeletePaymentOptionsDialog"
+                     
+            dialogListener="#{MyProfileBean.removePaymentDL}">
+            <af:panelGroupLayout inlineStyle="background-color:Window;"
+                                 layout="vertical" halign="left" valign="middle"
+                                 id="pgl5">
+              <af:outputText value="Are you sure you want to delete the selected payment options?"
+                             id="ot17"/>
+            </af:panelGroupLayout>
+          </af:dialog>
+        </af:popup>
+        <af:popup id="addPaymentOptionsPopup" contentDelivery="lazy"
+                  binding="#{MyProfileBean.addPaymentPopup}">
+          <af:dialog title="New Payment Option"
+                     id="addPaymentOptionsDialog" closeIconVisible="false"
+                     dialogListener="#{MyProfileBean.addPaymentsDL}">
+            <af:panelFormLayout id="pfl3">
+              <af:selectOneChoice value="#{bindings.PaymentTypeCode.inputValue}"
+                                  label="#{bindings.PaymentTypeCode.label}"
+                                  shortDesc="#{bindings.PaymentTypeCode.hints.tooltip}"
+                                  id="soc8">
+                <f:selectItems value="#{bindings.PaymentTypeCode.items}"
+                               id="si3"/>
+              </af:selectOneChoice>
+              <af:selectOneChoice value="#{bindings.BillingAddressId.inputValue}"
+                                  label="#{bindings.BillingAddressId.label}"
+                                  shortDesc="#{bindings.BillingAddressId.hints.tooltip}"
+                                  id="soc9">
+                <f:selectItems value="#{bindings.BillingAddressId.items}"
+                               id="si2"/>
+              </af:selectOneChoice>
+              <af:inputText value="#{bindings.AccountNumber.inputValue}"
+                            label="#{bindings.AccountNumber.hints.label}"
+                            required="#{bindings.AccountNumber.hints.mandatory}"
+                            columns="#{bindings.AccountNumber.hints.displayWidth}"
+                            maximumLength="#{bindings.AccountNumber.hints.precision}"
+                            shortDesc="#{bindings.AccountNumber.hints.tooltip}"
+                            id="it20"/>
+              <af:panelLabelAndMessage label="Valid sample credit card numbers include:"
+                                       id="plam1">
+                <af:panelGroupLayout layout="vertical" id="pgl3">
+                  <af:outputText value="Visa: 4012888888881881" id="ot9"/>
+                  <af:outputText value="MC: 5105105105105100" id="ot10">
+                    <p>
+                      Â 
+                    </p>
+                    <p>
+                      Â 
+                    </p>
+                  </af:outputText>
+                  <af:outputText value="AMEX: 343434343434343" id="ot11"/>
+                </af:panelGroupLayout>
+              </af:panelLabelAndMessage>
+              <af:selectOneChoice value="#{bindings.CardTypeCode.inputValue}"
+                                  label="#{bindings.CardTypeCode.label}"
+                                  shortDesc="#{bindings.CardTypeCode.hints.tooltip}"
+                                  id="soc10">
+                <f:selectItems value="#{bindings.CardTypeCode.items}" id="si7"/>
+              </af:selectOneChoice>
+              <af:inputDate value="#{bindings.ExpireDate.inputValue}"
+                            label="#{bindings.ExpireDate.hints.label}"
+                            required="#{bindings.ExpireDate.hints.mandatory}"
+                            shortDesc="#{bindings.ExpireDate.hints.tooltip}"
+                            id="id3">
+                <f:validator binding="#{bindings.ExpireDate.validator}"/>
+                <af:convertDateTime pattern="#{bindings.ExpireDate.format}"/>
+              </af:inputDate>
+              <af:inputText value="#{bindings.CheckDigits.inputValue}"
+                            label="#{bindings.CheckDigits.hints.label}"
+                            required="#{bindings.CheckDigits.hints.mandatory}"
+                            columns="#{bindings.CheckDigits.hints.displayWidth}"
+                            maximumLength="#{bindings.CheckDigits.hints.precision}"
+                            shortDesc="#{bindings.CheckDigits.hints.tooltip}"
+                            id="it21">
+                <f:validator binding="#{bindings.CheckDigits.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.CheckDigits.format}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.InstitutionName.inputValue}"
+                            label="#{bindings.InstitutionName.hints.label}"
+                            required="#{bindings.InstitutionName.hints.mandatory}"
+                            columns="#{bindings.InstitutionName.hints.displayWidth}"
+                            maximumLength="#{bindings.InstitutionName.hints.precision}"
+                            shortDesc="#{bindings.InstitutionName.hints.tooltip}"
+                            id="it22">
+                <f:validator binding="#{bindings.InstitutionName.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.RoutingIdentifier.inputValue}"
+                            label="#{bindings.RoutingIdentifier.hints.label}"
+                            required="#{bindings.RoutingIdentifier.hints.mandatory}"
+                            columns="#{bindings.RoutingIdentifier.hints.displayWidth}"
+                            maximumLength="#{bindings.RoutingIdentifier.hints.precision}"
+                            shortDesc="#{bindings.RoutingIdentifier.hints.tooltip}"
+                            id="it23">
+                <f:validator binding="#{bindings.RoutingIdentifier.validator}"/>
+              </af:inputText>
+              <af:panelLabelAndMessage label="Valid sample routing numbers include:"
+                                       id="plam2">
+                <af:outputText value="9874321, 789456124" id="ot12"/>
+              </af:panelLabelAndMessage>
+              <af:inputDate value="#{bindings.ValidFromDate.inputValue}"
+                            label="#{bindings.ValidFromDate.hints.label}"
+                            required="#{bindings.ValidFromDate.hints.mandatory}"
+                            shortDesc="#{bindings.ValidFromDate.hints.tooltip}"
+                            id="id4">
+                <f:validator binding="#{bindings.ValidFromDate.validator}"/>
+                <af:convertDateTime pattern="#{bindings.ValidFromDate.format}"/>
+              </af:inputDate>
+              <af:inputDate value="#{bindings.ValidToDate.inputValue}"
+                            label="#{bindings.ValidToDate.hints.label}"
+                            required="#{bindings.ValidToDate.hints.mandatory}"
+                            shortDesc="#{bindings.ValidToDate.hints.tooltip}"
+                            id="id5">
+                <f:validator binding="#{bindings.ValidToDate.validator}"/>
+                <af:convertDateTime pattern="#{bindings.ValidToDate.format}"/>
+              </af:inputDate>
+            </af:panelFormLayout>
+          </af:dialog>
+        </af:popup>
+                      </af:panelGroupLayout>
+              </af:showDetailItem>
+            </af:panelTabbed>
+          </f:facet>
+          <f:facet name="start"/>
+          <f:facet name="end"/>
+          <f:facet name="top">
+            <af:panelGroupLayout layout="scroll"
+                                 xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                                 id="pgl1">
+              <af:toolbar id="t1">
+                <af:commandButton id="cb1" actionListener="#{bindings.Commit.execute}" text="Save"/>         
+                <af:commandButton actionListener="#{bindings.Rollback.execute}" text="Cancel"
+                                  immediate="true" id="cb2"/>
+              </af:toolbar>
+            </af:panelGroupLayout>
+          </f:facet>
+        </af:panelStretchLayout>
+      </af:form>
+    </af:document>
+  </f:view>
+</jsp:root>

@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="CustomerRegistrationView"
+  Version="11.1.1.64.93"
+  InheritPersonalization="true"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="model.mwgl.vo.CustomerRegistrationView_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewAccessor
+    Name="LookUpBasetitle"
+    ViewObjectName="model.mwgl.vo.LookUpBaseView"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="LookUpBasepersontype"
+    ViewObjectName="model.mwgl.vo.LookUpBaseView"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="LookUpBaseGender"
+    ViewObjectName="model.mwgl.vo.LookUpBaseView"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="LookUpBasemaritalstatus"
+    ViewObjectName="model.mwgl.vo.LookUpBaseView"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="LookUpBasecontactMethod"
+    ViewObjectName="model.mwgl.vo.LookUpBaseView"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="TitleLOV"
+    ListVOName="LookUpBasetitle"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Title"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="LookupCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Meaning"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="PersonTypeCodeLOV"
+    ListVOName="LookUpBasepersontype"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="LOV_PersonTypeCode_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="PersonTypeCode"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="LookupCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Meaning"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="GenderLOV"
+    ListVOName="LookUpBaseGender"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="LOV_Gender_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Gender"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="LookupCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Meaning"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="MaritalStatusCodeLOV"
+    ListVOName="LookUpBasemaritalstatus"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="LOV_MaritalStatusCode_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="MaritalStatusCode"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="LookupCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Meaning"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="ContactMethodCodeLOV"
+    ListVOName="LookUpBasecontactMethod"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="LOV_ContactMethodCode_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="ContactMethodCode"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="LookupCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Meaning"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <SQLQuery>
+    <![CDATA[SELECT PersonEO.PERSON_ID, 
+       PersonEO.PRINCIPAL_NAME, 
+       PersonEO.TITLE, 
+       PersonEO.FIRST_NAME, 
+       PersonEO.LAST_NAME, 
+       PersonEO.PERSON_TYPE_CODE, 
+       PersonEO.PROVISIONED_FLAG, 
+       PersonEO.PRIMARY_ADDRESS_ID, 
+       PersonEO.REGISTERED_DATE, 
+       PersonEO.MEMBERSHIP_ID, 
+       PersonEO.EMAIL, 
+       PersonEO.CONFIRMED_EMAIL, 
+       PersonEO.PHONE_NUMBER, 
+       PersonEO.MOBILE_PHONE_NUMBER, 
+       PersonEO.CREDIT_LIMIT, 
+       PersonEO.DATE_OF_BIRTH, 
+       PersonEO.MARITAL_STATUS_CODE, 
+       PersonEO.GENDER, 
+       PersonEO.CHILDREN_UNDER_18, 
+       PersonEO.APPROXIMATE_INCOME, 
+       PersonEO.CONTACT_METHOD_CODE, 
+       PersonEO.CONTACTABLE_FLAG, 
+       PersonEO.CONTACT_BY_AFFILLIATES_FLAG, 
+       PersonEO.OBJECT_VERSION_ID
+FROM PERSONS PersonEO
+ORDER BY PersonEO.FIRST_NAME,PersonEO.LAST_NAME,PersonEO.EMAIL]]>
+  </SQLQuery>
+  <EntityUsage
+    Name="PersonsEO"
+    Entity="model.mwgl.eo.PersonsEO"/>
+  <ViewAttribute
+    Name="PersonId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="PersonId"
+    EntityUsage="PersonsEO"
+    AliasName="PERSON_ID"/>
+  <ViewAttribute
+    Name="PrincipalName"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="PrincipalName"
+    EntityUsage="PersonsEO"
+    AliasName="PRINCIPAL_NAME"/>
+  <ViewAttribute
+    Name="Title"
+    PrecisionRule="true"
+    EntityAttrName="Title"
+    EntityUsage="PersonsEO"
+    AliasName="TITLE"
+    LOVName="TitleLOV">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="FirstName"
+    PrecisionRule="true"
+    EntityAttrName="FirstName"
+    EntityUsage="PersonsEO"
+    AliasName="FIRST_NAME"/>
+  <ViewAttribute
+    Name="LastName"
+    PrecisionRule="true"
+    EntityAttrName="LastName"
+    EntityUsage="PersonsEO"
+    AliasName="LAST_NAME"/>
+  <ViewAttribute
+    Name="PersonTypeCode"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="PersonTypeCode"
+    EntityUsage="PersonsEO"
+    AliasName="PERSON_TYPE_CODE"
+    LOVName="PersonTypeCodeLOV">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ProvisionedFlag"
+    PrecisionRule="true"
+    EntityAttrName="ProvisionedFlag"
+    EntityUsage="PersonsEO"
+    AliasName="PROVISIONED_FLAG"/>
+  <ViewAttribute
+    Name="PrimaryAddressId"
+    PrecisionRule="true"
+    EntityAttrName="PrimaryAddressId"
+    EntityUsage="PersonsEO"
+    AliasName="PRIMARY_ADDRESS_ID"/>
+  <ViewAttribute
+    Name="RegisteredDate"
+    PrecisionRule="true"
+    EntityAttrName="RegisteredDate"
+    EntityUsage="PersonsEO"
+    AliasName="REGISTERED_DATE"/>
+  <ViewAttribute
+    Name="MembershipId"
+    PrecisionRule="true"
+    EntityAttrName="MembershipId"
+    EntityUsage="PersonsEO"
+    AliasName="MEMBERSHIP_ID"/>
+  <ViewAttribute
+    Name="Email"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Email"
+    EntityUsage="PersonsEO"
+    AliasName="EMAIL"/>
+  <ViewAttribute
+    Name="ConfirmedEmail"
+    PrecisionRule="true"
+    EntityAttrName="ConfirmedEmail"
+    EntityUsage="PersonsEO"
+    AliasName="CONFIRMED_EMAIL"/>
+  <ViewAttribute
+    Name="PhoneNumber"
+    PrecisionRule="true"
+    EntityAttrName="PhoneNumber"
+    EntityUsage="PersonsEO"
+    AliasName="PHONE_NUMBER"/>
+  <ViewAttribute
+    Name="MobilePhoneNumber"
+    PrecisionRule="true"
+    EntityAttrName="MobilePhoneNumber"
+    EntityUsage="PersonsEO"
+    AliasName="MOBILE_PHONE_NUMBER"/>
+  <ViewAttribute
+    Name="CreditLimit"
+    PrecisionRule="true"
+    EntityAttrName="CreditLimit"
+    EntityUsage="PersonsEO"
+    AliasName="CREDIT_LIMIT"/>
+  <ViewAttribute
+    Name="DateOfBirth"
+    PrecisionRule="true"
+    EntityAttrName="DateOfBirth"
+    EntityUsage="PersonsEO"
+    AliasName="DATE_OF_BIRTH"/>
+  <ViewAttribute
+    Name="MaritalStatusCode"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="MaritalStatusCode"
+    EntityUsage="PersonsEO"
+    AliasName="MARITAL_STATUS_CODE"
+    LOVName="MaritalStatusCodeLOV">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Gender"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Gender"
+    EntityUsage="PersonsEO"
+    AliasName="GENDER"
+    LOVName="GenderLOV">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ChildrenUnder18"
+    PrecisionRule="true"
+    EntityAttrName="ChildrenUnder18"
+    EntityUsage="PersonsEO"
+    AliasName="CHILDREN_UNDER_18"/>
+  <ViewAttribute
+    Name="ApproximateIncome"
+    PrecisionRule="true"
+    EntityAttrName="ApproximateIncome"
+    EntityUsage="PersonsEO"
+    AliasName="APPROXIMATE_INCOME"/>
+  <ViewAttribute
+    Name="ContactMethodCode"
+    PrecisionRule="true"
+    EntityAttrName="ContactMethodCode"
+    EntityUsage="PersonsEO"
+    AliasName="CONTACT_METHOD_CODE"
+    LOVName="ContactMethodCodeLOV">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ContactableFlag"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="ContactableFlag"
+    EntityUsage="PersonsEO"
+    AliasName="CONTACTABLE_FLAG"/>
+  <ViewAttribute
+    Name="ContactByAffilliatesFlag"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="ContactByAffilliatesFlag"
+    EntityUsage="PersonsEO"
+    AliasName="CONTACT_BY_AFFILLIATES_FLAG"/>
+  <ViewAttribute
+    Name="ObjectVersionId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="ObjectVersionId"
+    EntityUsage="PersonsEO"
+    AliasName="OBJECT_VERSION_ID"/>
+  <ViewAttribute
+    Name="ContactableCheckBox"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Boolean"
+    ColumnType="NUMBER"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR"
+    IsQueriable="false"
+    Passivate="true"/>
+  <ViewAttribute
+    Name="ContactByAffiliatesCheckBox"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Boolean"
+    ColumnType="NUMBER"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR"
+    IsQueriable="false"
+    Passivate="true"/>
+  <ViewLinkAccessor
+    Name="CustomerAddressView"
+    ViewLink="model.mwgl.vo.links.CustomerRegistrationToCustomerAddressLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="CustomerPaymentOptionView"
+    ViewLink="model.mwgl.vo.links.CustomerRegistrationToCustomerPaymentOptionLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ShoppingCartTransientView"
+  Version="11.1.1.64.93"
+  InheritPersonalization="true"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="model.mwgl.vo.ShoppingCartTransientView_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  
+  
+   <ViewAttribute
+    Name="ProductId"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="$none$"
+    AliasName="PRODUCTID"
+     SQLType="NUMERIC"
+    Passivate="true">
+  </ViewAttribute>
+  
+  <ViewAttribute
+    Name="ListPrice"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="VIEW_ATTR"
+    SQLType="NUMERIC"
+    Passivate="true">
+  </ViewAttribute>
+ 
+  <ViewAttribute
+    Name="Description"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.String"
+    ColumnType="$none$"
+    AliasName="DESCRIPTION"
+    SQLType="VARCHAR"
+    Passivate="true">
+  </ViewAttribute>
+ 
+  <ViewAttribute
+    Name="AdditionalInformation"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.String"
+    ColumnType="$none$"
+    AliasName="ADDITIONALINFORMATION"
+    SQLType="VARCHAR"
+    Passivate="true">
+  </ViewAttribute>
+  
+  <ViewAttribute
+    Name="Quantity"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Integer"
+    ColumnType="INTEGER"
+    AliasName="QUANTITY"
+    SQLType="NUMERIC"
+    Passivate="true">
+  </ViewAttribute>
+
+  <ViewAttribute
+    Name="CategoryName"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR"
+    Passivate="true">
+  </ViewAttribute>
+ 
+  <ViewAttribute
+    Name="ShippingCost"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="VIEW_ATTR"
+    SQLType="NUMERIC"
+    Passivate="true">
+  </ViewAttribute>
+  
+  <ViewAttribute
+    Name="ProductName"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR"
+    Passivate="true">
+  </ViewAttribute>
+  
+  <ViewAttribute
+    Name="LineItemTotal"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="$none$"
+    AliasName="LINEITEMTOTAL"
+    SQLType="NUMERIC">
+  </ViewAttribute>
+  
+  <ViewAttribute
+    Name="LineItemsSubtotal"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="$none$"
+    AliasName="LINEITEMSSUBTOTAL"
+    SQLType="NUMERIC"
+    IsSelected="false"
+    DefaultValue="0">
+  </ViewAttribute>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="ProductId"/>
+  </AttrArray>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

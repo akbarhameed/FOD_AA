@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="basicEmployeeInformationPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator id="CustomerRegistrationIterator" Binds="PersonsVO"
+              DataControl="FodAppModuleDataControl" RangeSize="25"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="CustomerRegistrationIterator"
+                     id="PrincipalName">
+      <AttrNames>
+        <Item Value="PrincipalName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CustomerRegistrationIterator" id="FirstName">
+      <AttrNames>
+        <Item Value="FirstName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CustomerRegistrationIterator" id="LastName">
+      <AttrNames>
+        <Item Value="LastName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CustomerRegistrationIterator"
+                     id="ProvisionedFlag">
+      <AttrNames>
+        <Item Value="ProvisionedFlag"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CustomerRegistrationIterator"
+                     id="PrimaryAddressId">
+      <AttrNames>
+        <Item Value="PrimaryAddressId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CustomerRegistrationIterator"
+                     id="RegisteredDate">
+      <AttrNames>
+        <Item Value="RegisteredDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CustomerRegistrationIterator"
+                     id="MembershipId">
+      <AttrNames>
+        <Item Value="MembershipId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CustomerRegistrationIterator" id="Email">
+      <AttrNames>
+        <Item Value="Email"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CustomerRegistrationIterator"
+                     id="ConfirmedEmail" ApplyValidation="true">
+      <AttrNames>
+        <Item Value="ConfirmedEmail"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CustomerRegistrationIterator"
+                     id="PhoneNumber">
+      <AttrNames>
+        <Item Value="PhoneNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CustomerRegistrationIterator"
+                     id="MobilePhoneNumber">
+      <AttrNames>
+        <Item Value="MobilePhoneNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CustomerRegistrationIterator"
+                     id="CreditLimit">
+      <AttrNames>
+        <Item Value="CreditLimit"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CustomerRegistrationIterator"
+                     id="DateOfBirth">
+      <AttrNames>
+        <Item Value="DateOfBirth"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CustomerRegistrationIterator"
+                     id="ChildrenUnder18">
+      <AttrNames>
+        <Item Value="ChildrenUnder18"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CustomerRegistrationIterator"
+                     id="ApproximateIncome">
+      <AttrNames>
+        <Item Value="ApproximateIncome"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CustomerRegistrationIterator"
+                     id="ContactableFlag">
+      <AttrNames>
+        <Item Value="ContactableFlag"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CustomerRegistrationIterator"
+                     id="ContactByAffilliatesFlag">
+      <AttrNames>
+        <Item Value="ContactByAffilliatesFlag"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CustomerRegistrationIterator"
+                     id="ObjectVersionId">
+      <AttrNames>
+        <Item Value="ObjectVersionId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CustomerRegistrationIterator"
+                     id="ContactableCheckBox">
+      <AttrNames>
+        <Item Value="ContactableCheckBox"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CustomerRegistrationIterator"
+                     id="ContactByAffiliatesCheckBox">
+      <AttrNames>
+        <Item Value="ContactByAffiliatesCheckBox"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="CustomerRegistrationIterator" id="Title" Uses="LOV_Title"
+          StaticList="false"/>
+    <list IterBinding="CustomerRegistrationIterator" id="PersonTypeCode"
+          Uses="LOV_PersonTypeCode" StaticList="false"/>
+    <list IterBinding="CustomerRegistrationIterator" id="Gender"
+          Uses="LOV_Gender" StaticList="false"/>
+    <list IterBinding="CustomerRegistrationIterator" id="MaritalStatusCode"
+          Uses="LOV_MaritalStatusCode" StaticList="false"/>
+    <list IterBinding="CustomerRegistrationIterator" id="ContactMethodCode"
+          Uses="LOV_ContactMethodCode" StaticList="false"/>
+  </bindings>
+</pageDefinition>

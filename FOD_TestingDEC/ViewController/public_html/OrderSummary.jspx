@@ -1,0 +1,299 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:trh="http://myfaces.apache.org/trinidad/html"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view>
+    <af:document id="d1">
+      <af:form id="f1">
+        <af:panelStretchLayout id="psl1" styleClass="AFStretchWidth">
+          <f:facet name="bottom"/>
+          <f:facet name="center">
+            <af:panelGroupLayout layout="scroll"
+                                 xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                                 id="pgl2" partialTriggers="soc1">
+              <trh:tableLayout width="100%" id="tl2">
+                <trh:rowLayout valign="top" id="rl5">
+                  <af:panelBox text="Customer Information" id="pb2">
+                    <trh:tableLayout width="100%" id="tl1">
+                      <trh:rowLayout valign="top" id="rl4">
+                        <trh:cellFormat id="cf2">
+                          <af:panelHeader text="General Information" id="ph1">
+                            <af:panelFormLayout id="pfl1">
+                              <af:panelLabelAndMessage label="#{bindings.Title.label}"
+                                                       id="plam1">
+                                <af:outputText value="#{bindings.Title.inputValue}"
+                                               id="ot1"/>
+                              </af:panelLabelAndMessage>
+                              <af:panelLabelAndMessage label="#{bindings.FirstName.label}"
+                                                       id="plam2">
+                                <af:outputText value="#{bindings.FirstName.inputValue}"
+                                               id="ot2"/>
+                              </af:panelLabelAndMessage>
+                              <af:panelLabelAndMessage label="#{bindings.LastName.label}"
+                                                       id="plam3">
+                                <af:outputText value="#{bindings.LastName.inputValue}"
+                                               id="ot3"/>
+                              </af:panelLabelAndMessage>
+                              <af:panelLabelAndMessage label="#{bindings.ConfirmedEmail.label}"
+                                                       id="plam4">
+                                <af:outputText value="#{bindings.ConfirmedEmail.inputValue}"
+                                               id="ot4"/>
+                              </af:panelLabelAndMessage>
+                              <af:panelLabelAndMessage label="#{bindings.PhoneNumber.label}"
+                                                       id="plam5">
+                                <af:outputText value="#{bindings.PhoneNumber.inputValue}"
+                                               id="ot5"/>
+                              </af:panelLabelAndMessage>
+                              <af:panelLabelAndMessage label="#{bindings.MobilePhoneNumber.label}"
+                                                       id="plam6">
+                                <af:outputText value="#{bindings.MobilePhoneNumber.inputValue}"
+                                               id="ot6"/>
+                              </af:panelLabelAndMessage>
+                            </af:panelFormLayout>
+                          </af:panelHeader>
+                        </trh:cellFormat>
+                        <trh:cellFormat id="cf5">
+                          <af:panelHeader text="Primary Address" id="ph2">
+                            <af:panelFormLayout id="pfl2">
+                              <af:panelLabelAndMessage label="#{bindings.Address1.label}"
+                                                       id="plam7">
+                                <af:outputText value="#{bindings.Address1.inputValue}"
+                                               id="ot7"/>
+                              </af:panelLabelAndMessage>
+                              <af:panelLabelAndMessage label="#{bindings.Address2.label}"
+                                                       id="plam8">
+                                <af:outputText value="#{bindings.Address2.inputValue}"
+                                               id="ot8"/>
+                              </af:panelLabelAndMessage>
+                              <af:panelLabelAndMessage label="#{bindings.City.label}"
+                                                       id="plam9">
+                                <af:outputText value="#{bindings.City.inputValue}"
+                                               id="ot9"/>
+                              </af:panelLabelAndMessage>
+                              <af:panelLabelAndMessage label="#{bindings.PostalCode.label}"
+                                                       id="plam10">
+                                <af:outputText value="#{bindings.PostalCode.inputValue}"
+                                               id="ot10"/>
+                              </af:panelLabelAndMessage>
+                              <af:panelLabelAndMessage label="#{bindings.StateProvince.label}"
+                                                       id="plam11">
+                                <af:outputText value="#{bindings.StateProvince.inputValue}"
+                                               id="ot11"/>
+                              </af:panelLabelAndMessage>
+                              <af:panelLabelAndMessage label="#{bindings.CountryId.label}"
+                                                       id="plam12">
+                                <af:outputText value="#{bindings.CountryId.inputValue}"
+                                               id="ot12"/>
+                              </af:panelLabelAndMessage>
+                            </af:panelFormLayout>
+                          </af:panelHeader>
+                        </trh:cellFormat>
+                      </trh:rowLayout>
+                    </trh:tableLayout>
+                  </af:panelBox>
+                </trh:rowLayout>
+                <trh:rowLayout valign="top" id="rl6">
+                  <af:panelBox text="Order Information" id="pb3">
+                    <trh:tableLayout width="100%" id="tl3">
+                      <trh:rowLayout valign="top" id="rl3">
+                        <trh:cellFormat id="cf4">
+                          <af:panelHeader text="General Information" id="ph3">
+                            <af:panelFormLayout id="pfl3">
+                              <af:panelLabelAndMessage label="#{bindings.OrderDate1.label}"
+                                                       id="plam13">
+                                <af:outputText value="#{bindings.OrderDate1.inputValue}"
+                                               id="ot13">
+                                  <af:convertDateTime pattern="#{bindings.OrderDate1.format}"/>
+                                </af:outputText>
+                              </af:panelLabelAndMessage>
+                              <af:panelLabelAndMessage label="#{bindings.OrderStatusCode1.label}"
+                                                       id="plam14">
+                                <af:outputText value="#{bindings.OrderStatusCode1.inputValue}"
+                                               id="ot14"/>
+                              </af:panelLabelAndMessage>
+                              <af:panelLabelAndMessage label="Invoice Total"
+                                                       id="plam15">
+                                <af:outputText value="#{bindings.InvoiceTotal.inputValue}"
+                                               id="ot15">
+                                  <af:convertNumber groupingUsed="false"
+                                                    pattern="#{bindings.InvoiceTotal.format}"/>
+                                </af:outputText>
+                              </af:panelLabelAndMessage>
+                            </af:panelFormLayout>
+                          </af:panelHeader>
+                        </trh:cellFormat>
+                        <trh:cellFormat id="cf3">
+                          <af:panelHeader text="Payment Method" id="ph4">
+                            <af:panelFormLayout id="pfl4">
+                              <af:panelLabelAndMessage label="#{bindings.AccountNumber.label}"
+                                                       id="plam16">
+                                <af:outputText value="#{bindings.AccountNumber.inputValue}"
+                                               id="ot16">
+                                  <af:convertNumber groupingUsed="false"
+                                                    pattern="#{bindings.AccountNumber.format}"/>
+                                </af:outputText>
+                              </af:panelLabelAndMessage>
+                              <af:panelLabelAndMessage label="#{bindings.CardTypeCode.label}"
+                                                       id="plam17">
+                                <af:outputText value="#{bindings.CardTypeCode.inputValue}"
+                                               id="ot17"/>
+                              </af:panelLabelAndMessage>
+                              <af:panelLabelAndMessage label="#{bindings.ExpireDate.label}"
+                                                       id="plam18">
+                                <af:outputText value="#{bindings.ExpireDate.inputValue}"
+                                               id="ot18">
+                                  <af:convertDateTime pattern="#{bindings.ExpireDate.format}"/>
+                                </af:outputText>
+                              </af:panelLabelAndMessage>
+                            </af:panelFormLayout>
+                          </af:panelHeader>
+                        </trh:cellFormat>
+                      </trh:rowLayout>
+                      <trh:rowLayout valign="top" id="rl2">
+                        <trh:cellFormat id="cf1">
+                          <af:panelHeader text="Shipping Information" id="ph5">
+                            <af:panelFormLayout id="pfl5">
+                              <af:panelLabelAndMessage label="#{bindings.ShipToName.label}"
+                                                       id="plam19">
+                                <af:outputText value="#{bindings.ShipToName.inputValue}"
+                                               id="ot19"/>
+                              </af:panelLabelAndMessage>
+                              <af:panelLabelAndMessage label="#{bindings.Address11.label}"
+                                                       id="plam20">
+                                <af:outputText value="#{bindings.Address11.inputValue}"
+                                               id="ot20"/>
+                              </af:panelLabelAndMessage>
+                              <af:panelLabelAndMessage label="#{bindings.Address21.label}"
+                                                       id="plam21">
+                                <af:outputText value="#{bindings.Address21.inputValue}"
+                                               id="ot21"/>
+                              </af:panelLabelAndMessage>
+                              <af:panelLabelAndMessage label="#{bindings.City1.label}"
+                                                       id="plam22">
+                                <af:outputText value="#{bindings.City1.inputValue}"
+                                               id="ot22"/>
+                              </af:panelLabelAndMessage>
+                              <af:panelLabelAndMessage label="#{bindings.PostalCode1.label}"
+                                                       id="plam23">
+                                <af:outputText value="#{bindings.PostalCode1.inputValue}"
+                                               id="ot23"/>
+                              </af:panelLabelAndMessage>
+                              <af:panelLabelAndMessage label="#{bindings.StateProvince1.label}"
+                                                       id="plam24">
+                                <af:outputText value="#{bindings.StateProvince1.inputValue}"
+                                               id="ot24"/>
+                              </af:panelLabelAndMessage>
+                              <af:panelLabelAndMessage label="#{bindings.CountryId1.label}"
+                                                       id="plam25">
+                                <af:outputText value="#{bindings.CountryId1.inputValue}"
+                                               id="ot25"/>
+                              </af:panelLabelAndMessage>
+                              <af:panelLabelAndMessage label="#{bindings.ShipToPhoneNumber.label}"
+                                                       id="plam26">
+                                <af:outputText value="#{bindings.ShipToPhoneNumber.inputValue}"
+                                               id="ot26"/>
+                              </af:panelLabelAndMessage>
+                            </af:panelFormLayout>
+                          </af:panelHeader>
+                        </trh:cellFormat>
+                        <trh:cellFormat id="cf6">
+                          <af:panelHeader text="Billing Address" id="ph6">
+                            <af:panelFormLayout id="pfl6">
+                              <af:panelLabelAndMessage label="#{bindings.Address12.label}"
+                                                       id="plam27">
+                                <af:outputText value="#{bindings.Address12.inputValue}"
+                                               id="ot27"/>
+                              </af:panelLabelAndMessage>
+                              <af:panelLabelAndMessage label="#{bindings.Address22.label}"
+                                                       id="plam28">
+                                <af:outputText value="#{bindings.Address22.inputValue}"
+                                               id="ot28"/>
+                              </af:panelLabelAndMessage>
+                              <af:panelLabelAndMessage label="#{bindings.City2.label}"
+                                                       id="plam29">
+                                <af:outputText value="#{bindings.City2.inputValue}"
+                                               id="ot29"/>
+                              </af:panelLabelAndMessage>
+                              <af:panelLabelAndMessage label="#{bindings.PostalCode2.label}"
+                                                       id="plam30">
+                                <af:outputText value="#{bindings.PostalCode2.inputValue}"
+                                               id="ot30"/>
+                              </af:panelLabelAndMessage>
+                              <af:panelLabelAndMessage label="#{bindings.StateProvince2.label}"
+                                                       id="plam31">
+                                <af:outputText value="#{bindings.StateProvince2.inputValue}"
+                                               id="ot31"/>
+                              </af:panelLabelAndMessage>
+                              <af:panelLabelAndMessage label="#{bindings.CountryId2.label}"
+                                                       id="plam32">
+                                <af:outputText value="#{bindings.CountryId2.inputValue}"
+                                               id="ot32"/>
+                              </af:panelLabelAndMessage>
+                            </af:panelFormLayout>
+                          </af:panelHeader>
+                        </trh:cellFormat>
+                      </trh:rowLayout>
+                    </trh:tableLayout>
+                  </af:panelBox>
+                </trh:rowLayout>
+                <trh:rowLayout valign="top" id="rl1">
+                  <af:panelBox text="Line Items" id="pb4">
+                    <af:table value="#{bindings.OrderItemsVO.collectionModel}"
+                              var="row"
+                              rows="#{bindings.OrderItemsVO.rangeSize}"
+                              first="#{bindings.OrderItemsVO.rangeStart}"
+                              emptyText="#{bindings.OrderItemsVO.viewable ? 'No rows yet.' : 'Access Denied.'}"
+                              fetchSize="#{bindings.OrderItemsVO.rangeSize}"
+                              width="100%" columnStretching="last"
+                              filterVisible="true" id="t1">
+                      <af:column sortProperty="ProductName" sortable="false"
+                                 headerText="#{bindings.OrderItemsVO.hints.ProductName.label}"
+                                 width="300" id="c1">
+                        <af:outputText value="#{row.ProductName}" id="ot33"/>
+                      </af:column>
+                      <af:column sortProperty="ListPrice" sortable="false"
+                                 headerText="#{bindings.OrderItemsVO.hints.ListPrice.label}"
+                                 id="c2">
+                        <af:outputText value="#{row.ListPrice}" id="ot34">
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.OrderItemsVO.hints.ListPrice.format}"/>
+                        </af:outputText>
+                      </af:column>
+                      <af:column sortProperty="ShippingCost" sortable="false"
+                                 headerText="#{bindings.OrderItemsVO.hints.ShippingCost.label}"
+                                 id="c3">
+                        <af:outputText value="#{row.ShippingCost}" id="ot35">
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.OrderItemsVO.hints.ShippingCost.format}"/>
+                        </af:outputText>
+                      </af:column>
+                      <af:column sortProperty="Quantity" sortable="false"
+                                 headerText="#{bindings.OrderItemsVO.hints.Quantity.label}"
+                                 id="c4">
+                        <af:outputText value="#{row.Quantity}" id="ot36">
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.OrderItemsVO.hints.Quantity.format}"/>
+                        </af:outputText>
+                      </af:column>
+                    </af:table>
+                  </af:panelBox>
+                </trh:rowLayout>
+              </trh:tableLayout>
+            </af:panelGroupLayout>
+          </f:facet>
+          <f:facet name="start"/>
+          <f:facet name="end"/>
+          <f:facet name="top">
+            <af:selectOneChoice id="soc1" value="#{bindings.OrderId.inputValue}"
+                                autoSubmit="true" label="Choose Order">
+              <f:selectItems id="si1" value="#{bindings.OrderId.items}"/>
+            </af:selectOneChoice>
+          </f:facet>
+        </af:panelStretchLayout>
+      </af:form>
+    </af:document>
+  </f:view>
+</jsp:root>
