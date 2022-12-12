@@ -423,42 +423,26 @@ public class FodAppModuleImpl extends ApplicationModuleImpl implements FodAppMod
 
 
     /**
-     * Container's getter for CustomerRegistrationVO.
-     * @return CustomerRegistrationVO
+     * Container's getter for CustomerRegistrastionVO.
+     * @return CustomerRegistrastionVO
      */
-    public ViewObjectImpl getCustomerRegistrationVO() {
-        return (ViewObjectImpl)findViewObject("CustomerRegistrationVO");
+    public ViewObjectImpl getCustomerRegistrastionVO() {
+        return (ViewObjectImpl)findViewObject("CustomerRegistrastionVO");
     }
 
     /**
-     * Container's getter for CustomerAddress.
-     * @return CustomerAddress
+     * Container's getter for CustomerAddressVO.
+     * @return CustomerAddressVO
      */
-    public ViewObjectImpl getCustomerAddress() {
-        return (ViewObjectImpl)findViewObject("CustomerAddress");
+    public AddressAndUsageVOImpl getCustomerAddressVO() {
+        return (AddressAndUsageVOImpl)findViewObject("CustomerAddressVO");
     }
 
     /**
-     * Container's getter for CustomerRegistrationToCustomerAddressLink1.
-     * @return CustomerRegistrationToCustomerAddressLink1
+     * Container's getter for PersonsToAddressesAndUsagesLink2.
+     * @return PersonsToAddressesAndUsagesLink2
      */
-    public ViewLinkImpl getCustomerRegistrationToCustomerAddressLink1() {
-        return (ViewLinkImpl)findViewLink("CustomerRegistrationToCustomerAddressLink1");
-    }
-
-    /**
-     * Container's getter for CustomerPaymentOption.
-     * @return CustomerPaymentOption
-     */
-    public ViewObjectImpl getCustomerPaymentOption() {
-        return (ViewObjectImpl)findViewObject("CustomerPaymentOption");
-    }
-
-    /**
-     * Container's getter for CustomerRegistrationToCustomerPaymentOptionLink1.
-     * @return CustomerRegistrationToCustomerPaymentOptionLink1
-     */
-    public ViewLinkImpl getCustomerRegistrationToCustomerPaymentOptionLink1() {
-        return (ViewLinkImpl)findViewLink("CustomerRegistrationToCustomerPaymentOptionLink1");
+    public ViewLinkImpl getPersonsToAddressesAndUsagesLink2() {
+        return (ViewLinkImpl)findViewLink("PersonsToAddressesAndUsagesLink2");
     }
 }

@@ -56,14 +56,11 @@
     Name="PaymentOptionsForUser"
     ViewObjectName="model.mwgl.vo.PaymentOptionsVO"/>
   <ViewUsage
-    Name="CustomerRegistrationVO"
-    ViewObjectName="model.mwgl.vo.CustomerRegistrationView"/>
+    Name="CustomerRegistrastionVO"
+    ViewObjectName="model.mwgl.vo.PersonsVO"/>
   <ViewUsage
-    Name="CustomerAddress"
-    ViewObjectName="model.mwgl.vo.CustomerAddressView"/>
-  <ViewUsage
-    Name="CustomerPaymentOption"
-    ViewObjectName="model.mwgl.vo.CustomerPaymentOptionView"/>
+    Name="CustomerAddressVO"
+    ViewObjectName="model.mwgl.vo.AddressAndUsageVO"/>
   <ViewLinkUsage
     Name="OrdersPersonsFkLink1"
     ViewLinkObjectName="model.mwgl.vo.links.OrdersPersonsFkLink"
@@ -107,16 +104,10 @@
     DstViewUsageName="model.mwgl.service.FodAppModule.PaymentOptionsForUser"
     Reversed="false"/>
   <ViewLinkUsage
-    Name="CustomerRegistrationToCustomerAddressLink1"
-    ViewLinkObjectName="model.mwgl.vo.links.CustomerRegistrationToCustomerAddressLink"
-    SrcViewUsageName="model.mwgl.service.FodAppModule.CustomerRegistrationVO"
-    DstViewUsageName="model.mwgl.service.FodAppModule.CustomerAddress"
-    Reversed="false"/>
-  <ViewLinkUsage
-    Name="CustomerRegistrationToCustomerPaymentOptionLink1"
-    ViewLinkObjectName="model.mwgl.vo.links.CustomerRegistrationToCustomerPaymentOptionLink"
-    SrcViewUsageName="model.mwgl.service.FodAppModule.CustomerRegistrationVO"
-    DstViewUsageName="model.mwgl.service.FodAppModule.CustomerPaymentOption"
+    Name="PersonsToAddressesAndUsagesLink2"
+    ViewLinkObjectName="model.mwgl.vo.links.PersonsToAddressesAndUsagesLink"
+    SrcViewUsageName="model.mwgl.service.FodAppModule.CustomerRegistrastionVO"
+    DstViewUsageName="model.mwgl.service.FodAppModule.CustomerAddressVO"
     Reversed="false"/>
   <ClientInterface>
     <Method
