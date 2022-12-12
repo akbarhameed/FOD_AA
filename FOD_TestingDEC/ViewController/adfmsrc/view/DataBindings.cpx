@@ -22,6 +22,13 @@
           usageId="view_employeeRegistrationPageDef"/>
     <page path="/WEB-INF/employee-registration-task-flow-definition.xml#employee-registration-task-flow-definition@userRegistrationCreate"
           usageId="view_employee_registration_task_flow_definition_employee_registration_task_flow_definition_userRegistrationCreatePageDef"/>
+    <page path="/basicInfo.jsff" usageId="view_basicInfoPageDef"/>
+    <page path="/paymentOption.jsff" usageId="view_paymentOptionPageDef"/>
+    <page path="/reviewCustomerInformation.jsff"
+          usageId="view_reviewCustomerInformationPageDef"/>
+    <page path="/Addresses.jsff" usageId="view_AddressesPageDef"/>
+    <page path="/customerRegistraion.jspx"
+          usageId="view_customerRegistraionPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="view_OrderPagePageDef" path="view.pageDefs.OrderPagePageDef"/>
@@ -40,6 +47,14 @@
           path="view.pageDefs.employeeRegistrationPageDef"/>
     <page id="view_employee_registration_task_flow_definition_employee_registration_task_flow_definition_userRegistrationCreatePageDef"
           path="view.pageDefs.employee_registration_task_flow_definition_employee_registration_task_flow_definition_userRegistrationCreatePageDef"/>
+    <page id="view_basicInfoPageDef" path="view.pageDefs.basicInfoPageDef"/>
+    <page id="view_paymentOptionPageDef"
+          path="view.pageDefs.paymentOptionPageDef"/>
+    <page id="view_reviewCustomerInformationPageDef"
+          path="view.pageDefs.reviewCustomerInformationPageDef"/>
+    <page id="view_AddressesPageDef" path="view.pageDefs.AddressesPageDef"/>
+    <page id="view_customerRegistraionPageDef"
+          path="view.pageDefs.customerRegistraionPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="FodAppModuleDataControl" Package="model.mwgl.service"
