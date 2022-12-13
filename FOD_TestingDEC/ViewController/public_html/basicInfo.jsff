@@ -1,2 +1,125 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"></jsp:root>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core" version="2.1">
+ <af:panelBorderLayout id="pbl1">
+  <f:facet name="top">
+          <af:train  value="#{controllerContext.currentViewPort.taskFlowContext.trainModel}"
+                    id="t1"/>
+      </f:facet>
+    <f:facet name="innerTop">
+      <af:panelHeader text="Basic Information" id="ph1">
+        <f:facet name="toolbar">
+          <af:panelGroupLayout layout="horizontal" id="pgl1">
+          <af:commandButton text="Cancel"
+                            action="exitRegistration" immediate="true"
+                            id="cb1"/>
+          <af:spacer width="5" height="10" id="s2"/>
+            <af:commandButton text="Next"
+                              action="goNext" id="cb2"/>
+          </af:panelGroupLayout>          
+        </f:facet>
+      </af:panelHeader>
+    </f:facet>
+    <af:panelGroupLayout layout="vertical" id="pgl2">
+      <af:panelFormLayout maxColumns="2" rows="6"
+                          labelAlignment="start" id="pfl1">
+        <af:inputText value="#{bindings.PrincipalName.inputValue}"
+                      label="#{bindings.PrincipalName.hints.label}"
+                      required="#{bindings.PrincipalName.hints.mandatory}"
+                      columns="30"
+                      maximumLength="#{bindings.PrincipalName.hints.precision}" id="it1">
+          <f:validator binding="#{bindings.PrincipalName.validator}"/>
+        </af:inputText>
+        <af:selectOneChoice value="#{bindings.Title.inputValue}"
+                            label="#{bindings.Title.label}" id="soc1">
+          <f:selectItems value="#{bindings.Title.items}"/>
+        </af:selectOneChoice>
+        <af:inputText value="#{bindings.FirstName.inputValue}"
+                      label="#{bindings.FirstName.hints.label}"
+                      required="#{bindings.FirstName.hints.mandatory}"
+                      columns="30"
+                      maximumLength="#{bindings.FirstName.hints.precision}"
+                      id="it2">
+          <f:validator binding="#{bindings.FirstName.validator}"/>
+        </af:inputText>
+        <af:inputText value="#{bindings.LastName.inputValue}"
+                      label="#{bindings.LastName.hints.label}"
+                      required="#{bindings.LastName.hints.mandatory}"
+                      columns="30"
+                      maximumLength="#{bindings.LastName.hints.precision}"
+                      id="it3">
+          <f:validator binding="#{bindings.LastName.validator}"/>
+        </af:inputText>
+        <af:selectOneChoice value="#{bindings.PersonTypeCode.inputValue}"
+                            label="#{bindings.PersonTypeCode.label}"
+                            disabled="true" id="soc2">
+          <f:selectItems value="#{bindings.PersonTypeCode.items}"/>
+        </af:selectOneChoice>
+        <af:inputText value="#{bindings.Email.inputValue}"
+                      label="#{bindings.Email.hints.label}"
+                      required="#{bindings.Email.hints.mandatory}"
+                      columns="#{bindings.Email.hints.displayWidth}"
+                      maximumLength="#{bindings.Email.hints.precision}" id="it4">
+          <f:validator binding="#{bindings.Email.validator}"/>
+        </af:inputText>
+        <af:inputText value="#{bindings.ConfirmedEmail.inputValue}"
+                      label="#{bindings.ConfirmedEmail.hints.label}"
+                      required="#{bindings.ConfirmedEmail.hints.mandatory}"
+                      columns="#{bindings.ConfirmedEmail.hints.displayWidth}"
+                      maximumLength="#{bindings.ConfirmedEmail.hints.precision}"
+                      id="it5">
+          <f:validator binding="#{bindings.ConfirmedEmail.validator}"/>
+        </af:inputText>
+        <af:inputText value="#{bindings.PhoneNumber.inputValue}"
+                      label="#{bindings.PhoneNumber.hints.label}"
+                      required="#{bindings.PhoneNumber.hints.mandatory}"
+                      columns="#{bindings.PhoneNumber.hints.displayWidth}"
+                      maximumLength="#{bindings.PhoneNumber.hints.precision}"
+                      id="it6">
+          <f:validator binding="#{bindings.PhoneNumber.validator}"/>
+        </af:inputText>
+        <af:inputText value="#{bindings.MobilePhoneNumber.inputValue}"
+                      label="#{bindings.MobilePhoneNumber.hints.label}"
+                      required="#{bindings.MobilePhoneNumber.hints.mandatory}"
+                      columns="#{bindings.MobilePhoneNumber.hints.displayWidth}"
+                      maximumLength="#{bindings.MobilePhoneNumber.hints.precision}"
+                      id="it7">
+          <f:validator binding="#{bindings.MobilePhoneNumber.validator}"/>
+        </af:inputText>
+        <af:selectOneChoice value="#{bindings.Gender.inputValue}"
+                            label="#{bindings.Gender.label}"
+                            showRequired="true" id="soc3">
+          <f:selectItems value="#{bindings.Gender.items}"/>
+        </af:selectOneChoice>
+        <af:inputDate value="#{bindings.DateOfBirth.inputValue}"
+                      label="#{bindings.DateOfBirth.hints.label}"
+                      required="#{bindings.DateOfBirth.hints.mandatory}"
+                      id="id1">
+          <f:validator binding="#{bindings.DateOfBirth.validator}"/>
+          <af:convertDateTime pattern="#{bindings.DateOfBirth.format}"/>
+        </af:inputDate>
+        <af:selectOneChoice value="#{bindings.ContactMethodCode.inputValue}"
+                            label="#{bindings.ContactMethodCode.label}"
+                            id="soc4">
+          <f:selectItems value="#{bindings.ContactMethodCode.items}"/>
+        </af:selectOneChoice>
+        <af:selectOneChoice value="#{bindings.MaritalStatusCode.inputValue}"
+                            label="#{bindings.MaritalStatusCode.label}"
+                            showRequired="true" id="soc5">
+          <f:selectItems value="#{bindings.MaritalStatusCode.items}"/>
+        </af:selectOneChoice>
+        <af:inputText value="#{bindings.ApproximateIncome.inputValue}"
+                      label="#{bindings.ApproximateIncome.hints.label}"
+                      required="#{bindings.ApproximateIncome.hints.mandatory}"
+                      columns="#{bindings.ApproximateIncome.hints.displayWidth}"
+                      maximumLength="#{bindings.ApproximateIncome.hints.precision}"
+                      id="it8">
+          <f:validator binding="#{bindings.ApproximateIncome.validator}"/>
+          <af:convertNumber groupingUsed="false"
+                            pattern="#{bindings.ApproximateIncome.format}"/>
+        </af:inputText>
+      </af:panelFormLayout>
+    </af:panelGroupLayout>
+  </af:panelBorderLayout>
+</jsp:root>

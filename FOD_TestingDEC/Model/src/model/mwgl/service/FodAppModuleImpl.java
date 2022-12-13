@@ -367,7 +367,7 @@ public class FodAppModuleImpl extends ApplicationModuleImpl implements FodAppMod
         }
     }
     public void userRegistrationCreate(){        
-        ViewObject userVO = this.getPersonsVO();
+        ViewObject userVO = this.getCustomerRegistrastionVO();
         Row currentRow = userVO.createRow();
         currentRow.setAttribute("PersonTypeCode","STAFF");
         userVO.insertRow(currentRow);       

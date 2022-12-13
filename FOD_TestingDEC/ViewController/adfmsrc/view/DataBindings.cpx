@@ -29,6 +29,8 @@
     <page path="/Addresses.jsff" usageId="view_AddressesPageDef"/>
     <page path="/customerRegistraion.jspx"
           usageId="view_customerRegistraionPageDef"/>
+    <page path="/WEB-INF/customer-registration-task-flow-definition.xml#customer-registration-task-flow-definition@userRegistrationCreate"
+          usageId="view_customer_registration_task_flow_definition_customer_registration_task_flow_definition_userRegistrationCreatePageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="view_OrderPagePageDef" path="view.pageDefs.OrderPagePageDef"/>
@@ -55,6 +57,8 @@
     <page id="view_AddressesPageDef" path="view.pageDefs.AddressesPageDef"/>
     <page id="view_customerRegistraionPageDef"
           path="view.pageDefs.customerRegistraionPageDef"/>
+    <page id="view_customer_registration_task_flow_definition_customer_registration_task_flow_definition_userRegistrationCreatePageDef"
+          path="view.pageDefs.customer_registration_task_flow_definition_customer_registration_task_flow_definition_userRegistrationCreatePageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="FodAppModuleDataControl" Package="model.mwgl.service"

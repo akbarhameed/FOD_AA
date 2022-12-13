@@ -7,21 +7,21 @@
       <property
          name="activityId">basicInfo</property>
       <property
-         name="start">true</property>
+         name="start">false</property>
       <property
          name="page">/basicInfo.jsff</property>
       <property
-         name="description">&lt;html>&lt;p>&lt;b>basicInfo&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+         name="description">&lt;html>&lt;p>&lt;b>basicInfo&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
       <property
          name="trainStop">true</property>
       <property
          name="exceptionHandler">false</property>
       <property
-         name="y">223.29883</property>
+         name="y">288.1953</property>
       <property
          name="pageFragment">true</property>
       <property
-         name="x">126.0</property>
+         name="x">143.0</property>
    </View>
    <View
       id="View3">
@@ -36,11 +36,11 @@
       <property
          name="exceptionHandler">false</property>
       <property
-         name="y">212.74121</property>
-      <property
-         name="x">363.0</property>
+         name="y">290.98828</property>
       <property
          name="pageFragment">true</property>
+      <property
+         name="x">356.0</property>
    </View>
    <TrainFlow
       islink="true"
@@ -48,7 +48,7 @@
       from="View2"
       to="View3">
       <property
-         name="sdm:polyPoints">R50,167.0,222.94824,322.0,212.39062,L50</property>
+         name="sdm:polyPoints">R46,184.08334,284.34473,316.0,287.48828,L46</property>
    </TrainFlow>
    <View
       id="View5">
@@ -63,11 +63,11 @@
       <property
          name="exceptionHandler">false</property>
       <property
-         name="y">219.49414</property>
-      <property
-         name="x">536.0</property>
+         name="y">289.39062</property>
       <property
          name="pageFragment">true</property>
+      <property
+         name="x">578.0</property>
    </View>
    <TrainFlow
       islink="true"
@@ -75,7 +75,7 @@
       from="View3"
       to="View5">
       <property
-         name="sdm:polyPoints">R50,404.0,212.39062,495.0,219.14355,L50</property>
+         name="sdm:polyPoints">R50,398.0,290.98828,537.0,289.04004,L50</property>
    </TrainFlow>
    <View
       id="View7">
@@ -90,11 +90,11 @@
       <property
          name="exceptionHandler">false</property>
       <property
-         name="y">211.14355</property>
-      <property
-         name="x">763.0</property>
+         name="y">282.44238</property>
       <property
          name="pageFragment">true</property>
+      <property
+         name="x">787.0</property>
    </View>
    <TrainFlow
       islink="true"
@@ -102,6 +102,41 @@
       from="View5"
       to="View7">
       <property
-         name="sdm:polyPoints">R50,577.0,219.14355,722.0,210.79297,L50</property>
+         name="sdm:polyPoints">R50,619.0,289.04004,746.0,282.0918,L50</property>
    </TrainFlow>
+   <MethodCall
+      id="MethodCall9">
+      <property
+         name="activityId">userRegistrationCreate</property>
+      <property
+         name="start">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>userRegistrationCreate&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">283.1377</property>
+      <property
+         name="x">-74.30371</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase10"
+      from="MethodCall9"
+      to="View2">
+      <property
+         name="fromOutcome">editBasicInfo</property>
+      <property
+         name="sdm:polyPoints">R50,-33.30371,282.7871,102.0,287.84473,L50</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase11"
+      from="View2"
+      to="View3">
+      <property
+         name="fromOutcome">goNext</property>
+      <property
+         name="sdm:polyPoints">R54,184.0,291.34473,314.916,294.48828,L54</property>
+   </ControlFlowCase>
 </SDM>
