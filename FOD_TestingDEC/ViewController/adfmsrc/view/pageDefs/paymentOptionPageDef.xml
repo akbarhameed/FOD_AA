@@ -5,6 +5,29 @@
   <parameters/>
   <executables>
     <variableIterator id="variables"/>
+    <iterator id="CustomerPaymentOptionIterator"
+              Binds="CustomerPaymentOptionsVO"
+              DataControl="FodAppModuleDataControl" RangeSize="25"/>
   </executables>
-  <bindings/>
+ <bindings>
+    <tree IterBinding="CustomerPaymentOptionIterator"
+          id="CustomerPaymentOption">
+      <nodeDefinition DefName="model.mwgl.vo.PaymentOptionsVO"
+                      Name="CustomerPaymentOption.0">
+        <AttrNames>
+          <Item Value="PaymentOptionId"/>
+          <Item Value="PaymentTypeCode"/>
+          <Item Value="BillingAddressId"/>
+          <Item Value="AccountNumber"/>
+          <Item Value="CardTypeCode"/>
+          <Item Value="ExpireDate"/>
+          <Item Value="CheckDigits"/>
+          <Item Value="RoutingIdentifier"/>
+          <Item Value="InstitutionName"/>
+          <Item Value="ValidFromDate"/>
+          <Item Value="ValidToDate"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
 </pageDefinition>

@@ -445,4 +445,20 @@ public class FodAppModuleImpl extends ApplicationModuleImpl implements FodAppMod
     public ViewLinkImpl getPersonsToAddressesAndUsagesLink2() {
         return (ViewLinkImpl)findViewLink("PersonsToAddressesAndUsagesLink2");
     }
+
+    /**
+     * Container's getter for CustomerPaymentOptionsVO.
+     * @return CustomerPaymentOptionsVO
+     */
+    public ViewObjectImpl getCustomerPaymentOptionsVO() {
+        return (ViewObjectImpl)findViewObject("CustomerPaymentOptionsVO");
+    }
+
+    /**
+     * Container's getter for PersonsToPaymentOptions2.
+     * @return PersonsToPaymentOptions2
+     */
+    public ViewLinkImpl getPersonsToPaymentOptions2() {
+        return (ViewLinkImpl)findViewLink("PersonsToPaymentOptions2");
+    }
 }

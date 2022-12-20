@@ -1,2 +1,124 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"></jsp:root>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" 
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core" version="2.1">
+<af:panelBorderLayout id="pbl1">
+    <f:facet name="top">
+        <af:train value="#{controllerContext.currentViewPort.taskFlowContext.trainModel}"
+                  id="t1"/>
+      
+    </f:facet>
+    <af:popup id="confirmDeletePopup" contentDelivery="lazyUncached">
+      <af:dialog closeIconVisible="false" modal="true" title="Warning"
+                 
+                 id="confirmDeleteDialog">
+        <af:panelGroupLayout layout="vertical" halign="left" valign="middle"
+                             id="pgl1">
+          <af:outputText value="Are you sure you want to remove the selected payment option?" id="ot1"/>
+          <af:outputText value="  "
+                         inlineStyle="font-weight:bold;" id="ot2"/>
+        </af:panelGroupLayout>
+      </af:dialog>
+    </af:popup>
+    <f:facet name="innerTop">
+      <af:panelHeader text="Payment Options"
+                      inlineStyle="width:100%;" id="ph1">
+        <f:facet name="toolbar">
+            <af:panelGroupLayout layout="horizontal" id="pgl2">
+              <af:commandButton text="Cancel"
+                                action="exitRegistration" immediate="true"
+                                id="cb1"/>
+              <af:spacer width="5" height="10" id="s1"/>
+              <af:trainButtonBar value="#{controllerContext.currentViewPort.taskFlowContext.trainModel}"
+                                 id="tbb1"/>
+            </af:panelGroupLayout>
+        </f:facet>
+      </af:panelHeader>
+    </f:facet>
+    <af:panelBorderLayout id="pbl2">
+      <af:panelGroupLayout id="pgl3">
+        <af:panelCollection inlineStyle="width:100%;" id="pc1">
+          <f:facet name="toolbar">
+            <af:toolbar id="t2">
+              <af:commandToolbarButton text="New"
+                                       action="goCreatePaymentOption"
+                                       immediate="true" id="ctb1"/>
+              <af:commandToolbarButton text="Edit"
+                                       action="goPaymentOptionDetails"
+                                       immediate="true" id="ctb2"/>
+              <af:commandToolbarButton text="Remove"
+                                       immediate="true" rendered="false"
+                                       id="ctb3"/>
+            </af:toolbar>
+          </f:facet>
+          <af:table value="#{bindings.CustomerPaymentOption.collectionModel}"
+                    var="row" rows="#{bindings.CustomerPaymentOption.rangeSize}"
+                    first="#{bindings.CustomerPaymentOption.rangeStart}"
+                    emptyText="#{bindings.CustomerPaymentOption.viewable ? 'No rows yet.' : 'Access Denied.'}"
+                    fetchSize="#{bindings.CustomerPaymentOption.rangeSize}"
+                    selectedRowKeys="#{bindings.CustomerPaymentOption.collectionModel.selectedRow}"
+                    selectionListener="#{bindings.CustomerPaymentOption.collectionModel.makeCurrent}"
+                    rowSelection="single" id="t3">
+            <af:column sortProperty="PaymentTypeCode" sortable="false"
+                       headerText="#{bindings.CustomerPaymentOption.hints.PaymentTypeCode.label}"
+                       id="c1">
+              <af:outputText value="#{row.PaymentTypeCode}" id="ot3"/>
+            </af:column>
+            <af:column sortProperty="AccountNumber" sortable="false"
+                       headerText="#{bindings.CustomerPaymentOption.hints.AccountNumber.label}"
+                       id="c2">
+              <af:outputText value="#{row.AccountNumber}" id="ot4">
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.CustomerPaymentOption.hints.AccountNumber.format}"/>
+              </af:outputText>
+            </af:column>
+            <af:column sortProperty="CardTypeCode" sortable="false"
+                       headerText="#{bindings.CustomerPaymentOption.hints.CardTypeCode.label}"
+                       id="c3">
+              <af:outputText value="#{row.CardTypeCode}" id="ot5"/>
+            </af:column>
+            <af:column sortProperty="ExpireDate" sortable="false"
+                       headerText="#{bindings.CustomerPaymentOption.hints.ExpireDate.label}"
+                       id="c4">
+              <af:outputText value="#{row.ExpireDate}" id="ot6">
+                <af:convertDateTime pattern="#{bindings.CustomerPaymentOption.hints.ExpireDate.format}"/>
+              </af:outputText>
+            </af:column>
+            <af:column sortProperty="CheckDigits" sortable="false"
+                       headerText="#{bindings.CustomerPaymentOption.hints.CheckDigits.label}"
+                       id="c5">
+              <af:outputText value="#{row.CheckDigits}" id="ot7">
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.CustomerPaymentOption.hints.CheckDigits.format}"/>
+              </af:outputText>
+            </af:column>
+            <af:column sortProperty="RoutingIdentifier" sortable="false"
+                       headerText="#{bindings.CustomerPaymentOption.hints.RoutingIdentifier.label}"
+                       id="c6">
+              <af:outputText value="#{row.RoutingIdentifier}" id="ot8"/>
+            </af:column>
+            <af:column sortProperty="InstitutionName" sortable="false"
+                       headerText="#{bindings.CustomerPaymentOption.hints.InstitutionName.label}"
+                       id="c7">
+              <af:outputText value="#{row.InstitutionName}" id="ot9"/>
+            </af:column>
+            <af:column sortProperty="ValidFromDate" sortable="false"
+                       headerText="#{bindings.CustomerPaymentOption.hints.ValidFromDate.label}"
+                       id="c8">
+              <af:outputText value="#{row.ValidFromDate}" id="ot10">
+                <af:convertDateTime pattern="#{bindings.CustomerPaymentOption.hints.ValidFromDate.format}"/>
+              </af:outputText>
+            </af:column>
+            <af:column sortProperty="ValidToDate" sortable="false"
+                       headerText="#{bindings.CustomerPaymentOption.hints.ValidToDate.label}"
+                       id="c9">
+              <af:outputText value="#{row.ValidToDate}" id="ot11">
+                <af:convertDateTime pattern="#{bindings.CustomerPaymentOption.hints.ValidToDate.format}"/>
+              </af:outputText>
+            </af:column>
+          </af:table>
+        </af:panelCollection>
+      </af:panelGroupLayout>
+    </af:panelBorderLayout>
+  </af:panelBorderLayout>
+</jsp:root>
