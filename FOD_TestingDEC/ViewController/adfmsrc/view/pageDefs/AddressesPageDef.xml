@@ -5,6 +5,63 @@
   <parameters/>
   <executables>
     <variableIterator id="variables"/>
+    <iterator Binds="CustomerAddressVO" RangeSize="10"
+              DataControl="FodAppModuleDataControl"
+              id="CustomerAddressVOIterator"/>
   </executables>
-  <bindings/>
+  <bindings>
+    <tree IterBinding="CustomerAddressVOIterator" id="CustomerAddressVO">
+      <nodeDefinition DefName="model.mwgl.vo.AddressAndUsageVO"
+                      Name="CustomerAddressVO0">
+        <AttrNames>
+          <Item Value="AddressId"/>
+          <Item Value="Address1"/>
+          <Item Value="Address2"/>
+          <Item Value="AddressId1"/>
+          <Item Value="AddressLabel"/>
+          <Item Value="AddressUsagesId"/>
+          <Item Value="AssociatedOwnerId"/>
+          <Item Value="City"/>
+          <Item Value="CountryId"/>
+          <Item Value="CountryName"/>
+          <Item Value="CreatedBy"/>
+          <Item Value="CreatedBy1"/>
+          <Item Value="CreatedBy2"/>
+          <Item Value="CreatedBy3"/>
+          <Item Value="CreationDate"/>
+          <Item Value="CreationDate1"/>
+          <Item Value="CreationDate2"/>
+          <Item Value="CreationDate3"/>
+          <Item Value="Description"/>
+          <Item Value="ExpiredFlag"/>
+          <Item Value="IsoCountryCode"/>
+          <Item Value="Language"/>
+          <Item Value="Language1"/>
+          <Item Value="LastUpdateDate"/>
+          <Item Value="LastUpdateDate1"/>
+          <Item Value="LastUpdateDate2"/>
+          <Item Value="LastUpdateDate3"/>
+          <Item Value="LastUpdatedBy"/>
+          <Item Value="LastUpdatedBy1"/>
+          <Item Value="LastUpdatedBy2"/>
+          <Item Value="LastUpdatedBy3"/>
+          <Item Value="Latitude"/>
+          <Item Value="Longitude"/>
+          <Item Value="LookupCode"/>
+          <Item Value="LookupType"/>
+          <Item Value="Meaning"/>
+          <Item Value="ObjectVersionId"/>
+          <Item Value="ObjectVersionId1"/>
+          <Item Value="ObjectVersionId2"/>
+          <Item Value="ObjectVersionId3"/>
+          <Item Value="OwnerTypeCode"/>
+          <Item Value="PostalCode"/>
+          <Item Value="SourceLang"/>
+          <Item Value="SourceLang1"/>
+          <Item Value="StateProvince"/>
+          <Item Value="UsageTypeCode"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
 </pageDefinition>

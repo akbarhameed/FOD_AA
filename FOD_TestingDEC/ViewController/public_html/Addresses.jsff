@@ -1,2 +1,99 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"></jsp:root>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+            <af:panelBorderLayout id="pbl1">
+    <f:facet name="top">
+       <af:train value="#{controllerContext.currentViewPort.taskFlowContext.trainModel}"
+                 id="t1"/>
+    </f:facet>
+    <af:popup id="confirmDeletePopup" contentDelivery="lazyUncached">
+      <af:dialog closeIconVisible="false" 
+                 modal="true" title="#{res['global.warning']}"
+                 
+                 id="confirmDeleteDialog">
+        <af:panelGroupLayout inlineStyle="background-color:Window;"
+                             layout="vertical" halign="left" valign="middle"
+                             id="pgl1">
+          <af:outputText value="#{res['defineaddress.deleteconfirm']}"
+                         id="ot1"/>
+          <af:outputText value="#{bindings.AddressLabel.inputValue}"
+                         inlineStyle="font-weight:bold;" id="ot2"/>
+        </af:panelGroupLayout>
+      </af:dialog>
+    </af:popup>
+    <f:facet name="innerTop">
+      <af:panelHeader text="Addresses Information" inlineStyle="width:100%;"
+                      id="ph1">
+        <f:facet name="toolbar">
+          <af:group id="g1">
+            <af:panelGroupLayout layout="horizontal" id="pgl2">
+              <af:commandButton text="Cancel"
+                                action="exitRegistration" immediate="true"
+                                id="cb1"/>
+              <af:spacer width="5" height="10" id="s1"/>
+              <af:trainButtonBar value="#{controllerContext.currentViewPort.taskFlowContext.trainModel}"
+                                 id="tbb1"/>
+            </af:panelGroupLayout>
+          </af:group>
+        </f:facet>
+      </af:panelHeader>
+    </f:facet>
+    <af:panelBorderLayout inlineStyle="width:100%;" id="pbl2">
+      <af:panelGroupLayout layout="scroll"
+                           inlineStyle="width:100%; height:100%;"
+                           id="addressesGroupPanel">
+        <af:panelCollection inlineStyle="width:100%; height:300px; border-color:transparent;"
+                            id="addC">
+          <af:table value="#{bindings.CustomerAddressVO.collectionModel}"
+                    var="row" rows="#{bindings.CustomerAddressVO.rangeSize}"
+                    first="#{bindings.CustomerAddressVO.rangeStart}"
+                    emptyText="#{bindings.CustomerAddressVO.viewable ? '' : 'Access Denied.'}"
+                    fetchSize="#{bindings.CustomerAddressVO.rangeSize}"
+                    selectedRowKeys="#{bindings.CustomerAddressVO.collectionModel.selectedRow}"
+                    selectionListener="#{bindings.CustomerAddressVO.collectionModel.makeCurrent}"
+                    rowSelection="single" 
+                    columnStretching="last" id="addT"
+                    inlineStyle="width:100%;"
+                    partialTriggers=":::confirmDeleteDialog :::confirmDeletePopup">
+            <af:column sortProperty="AddressLabel" sortable="true"
+                       headerText="#{bindings.CustomerAddressVO.hints.AddressLabel.label}"
+                       id="c1">
+              <af:outputText value="#{row.AddressLabel}" id="ot3"/>
+            </af:column>
+          </af:table>
+          <f:facet name="toolbar">
+            <af:toolbar id="t2">
+              <af:spacer width="10" height="5" id="s3"/>
+              <af:commandToolbarButton text="New" 
+                                       action="goCreateAddress"                                       
+                                       partialSubmit="true"
+                                       id="createAddressButton"
+                                       immediate="true"/>
+              <af:spacer width="5" height="5" id="s4"/>
+              <af:commandToolbarButton text="Edit" id="editAddressButton"
+                                       partialSubmit="true"
+                                      
+                                       styleClass="editAddressButton"
+                                       action="goAddressDetails"
+                                       immediate="true"/>
+              <af:spacer width="5" height="5" id="s5"/>
+              <af:commandToolbarButton text="Remove"
+                                       
+                                       partialSubmit="true"
+                                       immediate="true"
+                                       id="deleteAddressButton">
+                              <af:showPopupBehavior popupId="::confirmDeletePopup"/>
+                              </af:commandToolbarButton>
+              <af:spacer width="10" height="5" id="s6"/>                                                                 
+            </af:toolbar>
+          </f:facet>
+        </af:panelCollection>
+      </af:panelGroupLayout>
+      <f:facet name="innerTop">
+        <af:panelHeader text=" " id="ph2">
+        </af:panelHeader>
+      </f:facet>
+    </af:panelBorderLayout>
+  </af:panelBorderLayout>
+</jsp:root>

@@ -31,6 +31,9 @@
           usageId="view_customerRegistraionPageDef"/>
     <page path="/WEB-INF/customer-registration-task-flow-definition.xml#customer-registration-task-flow-definition@userRegistrationCreate"
           usageId="view_customer_registration_task_flow_definition_customer_registration_task_flow_definition_userRegistrationCreatePageDef"/>
+    <page path="/WEB-INF/customer-registration-task-flow-definition.xml#customer-registration-task-flow-definition@CreateAddress"
+          usageId="view_customer_registration_task_flow_definition_customer_registration_task_flow_definition_CreateInsertPageDef"/>
+    <page path="/addressNew.jsff" usageId="view_addressNewPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="view_OrderPagePageDef" path="view.pageDefs.OrderPagePageDef"/>
@@ -59,6 +62,9 @@
           path="view.pageDefs.customerRegistraionPageDef"/>
     <page id="view_customer_registration_task_flow_definition_customer_registration_task_flow_definition_userRegistrationCreatePageDef"
           path="view.pageDefs.customer_registration_task_flow_definition_customer_registration_task_flow_definition_userRegistrationCreatePageDef"/>
+    <page id="view_customer_registration_task_flow_definition_customer_registration_task_flow_definition_CreateInsertPageDef"
+          path="view.pageDefs.customer_registration_task_flow_definition_customer_registration_task_flow_definition_CreateInsertPageDef"/>
+    <page id="view_addressNewPageDef" path="view.pageDefs.addressNewPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="FodAppModuleDataControl" Package="model.mwgl.service"
