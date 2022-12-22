@@ -8,6 +8,7 @@
                  id="t1"/>
     </f:facet>
     <af:popup id="confirmDeletePopup" contentDelivery="lazyUncached">
+    
       <af:dialog closeIconVisible="false" 
                  modal="true" title="#{res['global.warning']}"
                  
