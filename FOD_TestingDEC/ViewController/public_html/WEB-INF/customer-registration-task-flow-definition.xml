@@ -32,6 +32,14 @@
     </method-call>
     <view id="addressNew">
       <page>/addressNew.jsff</page>
+    <method-call id="CreateInsert">
+      <method>#{bindings.CreateInsert.execute}</method>
+      <outcome id="__18">
+        <fixed-outcome>CreateInsert</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="view1">
+      <page>/paymentOptionDetailsview.jsff</page>
     </view>
     <train/>
     <control-flow-rule id="__7">
@@ -60,6 +68,33 @@
       <control-flow-case id="__27">
         <from-outcome id="__29">editAddress</from-outcome>
         <to-activity-id id="__28">addressNew</to-activity-id>
+    <control-flow-rule id="__19">
+      <from-activity-id id="__20">paymentOption</from-activity-id>
+      <control-flow-case id="__21">
+        <from-outcome id="__23">goCreatePaymentOption</from-outcome>
+        <to-activity-id id="__22">CreateInsert</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__35">
+        <from-outcome id="__37">goPaymentOptionDetails</from-outcome>
+        <to-activity-id id="__36">view1</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__25">
+      <from-activity-id id="__26">view1</from-activity-id>
+      <control-flow-case id="__28">
+        <from-outcome id="__29">goCreatePaymentOption</from-outcome>
+        <to-activity-id id="__27">CreateInsert</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__39">
+        <from-outcome id="__40">goDefinePaymentOptions</from-outcome>
+        <to-activity-id id="__38">paymentOption</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__30">
+      <from-activity-id id="__31">CreateInsert</from-activity-id>
+      <control-flow-case id="__33">
+        <from-outcome id="__32">editPaymentOption</from-outcome>
+        <to-activity-id id="__34">view1</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <use-page-fragments/>

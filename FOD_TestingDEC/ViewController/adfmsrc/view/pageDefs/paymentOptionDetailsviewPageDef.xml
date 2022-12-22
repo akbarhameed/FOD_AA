@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="paymentOptionDetailsviewPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator id="CustomerPaymentOptionIterator"
+              Binds="CustomerPaymentOptionsVO"
+              DataControl="FodAppModuleDataControl" RangeSize="25"/>
+  </executables>
+   <bindings>
+    <list IterBinding="CustomerPaymentOptionIterator" Uses="LOV_PaymentTypeCode"
+          id="PaymentTypeCode"/>
+    <list IterBinding="CustomerPaymentOptionIterator" Uses="LOV_CardTypeCode"
+          id="CardTypeCode"/>
+    <list IterBinding="CustomerPaymentOptionIterator" Uses="LOV_BillingAddressId"
+          id="BillingAddressId"/>
+    <attributeValues IterBinding="CustomerPaymentOptionIterator"
+                     id="ValidFromDate">
+      <AttrNames>
+        <Item Value="ValidFromDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CustomerPaymentOptionIterator"
+                     id="ValidToDate">
+      <AttrNames>
+        <Item Value="ValidToDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CustomerPaymentOptionIterator"
+                     id="ExpireDate">
+      <AttrNames>
+        <Item Value="ExpireDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CustomerPaymentOptionIterator"
+                     id="AccountNumber">
+      <AttrNames>
+        <Item Value="AccountNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CustomerPaymentOptionIterator"
+                     id="CheckDigits">
+      <AttrNames>
+        <Item Value="CheckDigits"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CustomerPaymentOptionIterator"
+                     id="RoutingIdentifier">
+      <AttrNames>
+        <Item Value="RoutingIdentifier"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CustomerPaymentOptionIterator"
+                     id="InstitutionName">
+      <AttrNames>
+        <Item Value="InstitutionName"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

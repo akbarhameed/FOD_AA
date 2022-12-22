@@ -1,0 +1,101 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+<af:panelBorderLayout id="pbl1">
+    <f:facet name="top">
+        <af:train value="#{controllerContext.currentViewPort.taskFlowContext.trainModel}"
+                  inlineStyle="width:100%;" id="t1"/>
+     
+    </f:facet>
+    <f:facet name="innerTop">
+    <af:panelHeader text="Payment Option Detail" id="ph1">
+      <f:facet name="toolbar">
+        <af:toolbar flex="0" id="t2">
+          <af:commandToolbarButton text="Cancel"
+                                   immediate="true"
+                                   action="goDefinePaymentOptions" id="ctb1"/>
+          <af:commandToolbarButton text="Save &amp; Add Another"
+                                   action="goCreatePaymentOption" id="ctb2"/>
+          <af:commandToolbarButton text="Save &amp; Return"
+                                   action="goDefinePaymentOptions" id="ctb3"/>
+        </af:toolbar>
+      </f:facet>
+        <af:spacer width="10" height="50" id="s1"/>
+        <af:panelFormLayout rows="6" maxColumns="2" fieldWidth="30%"
+                          labelWidth="70%" id="pfl1">
+        <af:selectOneChoice value="#{bindings.PaymentTypeCode.inputValue}"
+                            label="#{bindings.PaymentTypeCode.label}" id="soc1">
+          <f:selectItems value="#{bindings.PaymentTypeCode.items}"/>
+        </af:selectOneChoice>
+        <af:selectOneChoice value="#{bindings.CardTypeCode.inputValue}"
+                            label="#{bindings.CardTypeCode.label}" id="soc2">
+          <f:selectItems value="#{bindings.CardTypeCode.items}"/>
+        </af:selectOneChoice>
+        <af:selectOneChoice value="#{bindings.BillingAddressId.inputValue}"
+                            label="#{bindings.BillingAddressId.label}"
+                            id="soc3">
+          <f:selectItems value="#{bindings.BillingAddressId.items}"/>
+        </af:selectOneChoice>
+          <af:inputText value="#{bindings.AccountNumber.inputValue}"
+                        label="#{bindings.AccountNumber.hints.label}"
+                        required="#{bindings.AccountNumber.hints.mandatory}"
+                        columns="#{bindings.AccountNumber.hints.displayWidth}"
+                        maximumLength="#{bindings.AccountNumber.hints.precision}"
+                        id="it1">
+            <f:validator binding="#{bindings.AccountNumber.validator}"/>
+            <af:convertNumber groupingUsed="false"
+                              pattern="#{bindings.AccountNumber.format}"/>
+          </af:inputText>
+          <af:inputText value="#{bindings.CheckDigits.inputValue}"
+                        label="#{bindings.CheckDigits.hints.label}"
+                        required="#{bindings.CheckDigits.hints.mandatory}"
+                        columns="#{bindings.CheckDigits.hints.displayWidth}"
+                        maximumLength="#{bindings.CheckDigits.hints.precision}"
+                        id="it2">
+            <f:validator binding="#{bindings.CheckDigits.validator}"/>
+            <af:convertNumber groupingUsed="false"
+                              pattern="#{bindings.CheckDigits.format}"/>
+          </af:inputText>
+          <af:inputDate value="#{bindings.ExpireDate.inputValue}"
+                        label="#{bindings.ExpireDate.hints.label}"
+                        required="#{bindings.ExpireDate.hints.mandatory}"
+                        id="id1">
+            <f:validator binding="#{bindings.ExpireDate.validator}"/>
+            <af:convertDateTime pattern="#{bindings.ExpireDate.format}"/>
+          </af:inputDate>
+          <af:inputText value="#{bindings.InstitutionName.inputValue}"
+                        label="#{bindings.InstitutionName.hints.label}"
+                        required="#{bindings.InstitutionName.hints.mandatory}"
+                        columns="#{bindings.InstitutionName.hints.displayWidth}"
+                        maximumLength="#{bindings.InstitutionName.hints.precision}"
+                        id="it3">
+            <f:validator binding="#{bindings.InstitutionName.validator}"/>
+          </af:inputText>
+          <af:inputText value="#{bindings.RoutingIdentifier.inputValue}"
+                        label="#{bindings.RoutingIdentifier.hints.label}"
+                        required="#{bindings.RoutingIdentifier.hints.mandatory}"
+                        columns="#{bindings.RoutingIdentifier.hints.displayWidth}"
+                        maximumLength="#{bindings.RoutingIdentifier.hints.precision}"
+                        id="it4">
+            <f:validator binding="#{bindings.RoutingIdentifier.validator}"/>
+          </af:inputText>
+          <af:inputDate value="#{bindings.ValidFromDate.inputValue}"
+                      label="#{bindings.ValidFromDate.hints.label}"
+                      required="#{bindings.ValidFromDate.hints.mandatory}"
+                        id="id2">
+          <f:validator binding="#{bindings.ValidFromDate.validator}"/>
+          <af:convertDateTime pattern="#{bindings.ValidFromDate.format}"/>
+        </af:inputDate>
+        <af:inputDate value="#{bindings.ValidToDate.inputValue}"
+                      label="#{bindings.ValidToDate.hints.label}"
+                      required="#{bindings.ValidToDate.hints.mandatory}"
+                      id="id3">
+          <f:validator binding="#{bindings.ValidToDate.validator}"/>
+          <af:convertDateTime pattern="#{bindings.ValidToDate.format}"/>
+        </af:inputDate>
+        </af:panelFormLayout>
+    </af:panelHeader>
+        </f:facet>
+    </af:panelBorderLayout>
+</jsp:root>

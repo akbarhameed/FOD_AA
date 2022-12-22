@@ -34,6 +34,10 @@
     <page path="/WEB-INF/customer-registration-task-flow-definition.xml#customer-registration-task-flow-definition@CreateAddress"
           usageId="view_customer_registration_task_flow_definition_customer_registration_task_flow_definition_CreateInsertPageDef"/>
     <page path="/addressNew.jsff" usageId="view_addressNewPageDef"/>
+    <page path="/WEB-INF/customer-registration-task-flow-definition.xml#customer-registration-task-flow-definition@CreateInsert"
+          usageId="view_customer_registration_task_flow_definition_customer_registration_task_flow_definition_CreateInsertPageDef"/>
+    <page path="/paymentOptionDetailsview.jsff"
+          usageId="view_paymentOptionDetailsviewPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="view_OrderPagePageDef" path="view.pageDefs.OrderPagePageDef"/>
@@ -65,6 +69,8 @@
     <page id="view_customer_registration_task_flow_definition_customer_registration_task_flow_definition_CreateInsertPageDef"
           path="view.pageDefs.customer_registration_task_flow_definition_customer_registration_task_flow_definition_CreateInsertPageDef"/>
     <page id="view_addressNewPageDef" path="view.pageDefs.addressNewPageDef"/>
+    <page id="view_paymentOptionDetailsviewPageDef"
+          path="view.pageDefs.paymentOptionDetailsviewPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="FodAppModuleDataControl" Package="model.mwgl.service"

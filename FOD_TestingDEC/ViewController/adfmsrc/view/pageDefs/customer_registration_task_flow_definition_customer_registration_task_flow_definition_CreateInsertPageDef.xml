@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93"
+                id="customer_registration_task_flow_definition_customer_registration_task_flow_definition_CreateInsertPageDef"
+                Package="view.pageDefs" SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="CustomerPaymentOptionsVO" RangeSize="25"
+              DataControl="FodAppModuleDataControl"
+              id="CustomerPaymentOptionsVOIterator"/>
+  </executables>
+  <bindings>
+    <action IterBinding="CustomerPaymentOptionsVOIterator" id="CreateInsert"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+  </bindings>
+</pageDefinition>
